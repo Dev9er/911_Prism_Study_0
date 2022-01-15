@@ -38,3 +38,18 @@ cf. Bootstrapper: Run() >> ConfigureViewModelLocator() >>
     13. RegionManager.UpdateRegions()
     14. InitializeShell()
     15. InitializeModules()
+
+# Prism Library
+## Dependency Injection
+### Registering Types
+- Registering Transient Services
+    - containerRegistry.Register<FooService>();
+    - containerRegistry.Register<IBarService, BarService>();
+- Registering Singleton Services
+    - containerRegistry.RegisterSingleton<FooService>();
+    - containerRegistry.RegisterSingleton<IBarService, BarService>();
+- Registering a Service Instance
+    - containerRegistry.RegisterInstance<IFoo>(new FooImplementation());
+- if (containerRegistry.IsRegistered<ISomeService>())
+## Commanding
+
