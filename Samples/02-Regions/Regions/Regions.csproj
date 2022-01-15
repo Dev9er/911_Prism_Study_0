@@ -6,6 +6,6 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Prism.Unity" />
+    <ProjectReference Include="..\..\..\Prism-8.1.97\src\Wpf\Prism.Unity.Wpf\Prism.Unity.Wpf.csproj" />
   </ItemGroup>
 </Project>

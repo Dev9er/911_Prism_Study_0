@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "Prism.Wpf/8.1.0-g": {
+      "Prism.Wpf/8.1.1-g6440a4b3ee": {
         "dependencies": {
           "Microsoft.NETFramework.ReferenceAssemblies": "1.0.2",
           "Microsoft.SourceLink.GitHub": "1.1.0-beta-20204-02",
@@ -44,7 +44,7 @@
     }
   },
   "libraries": {
-    "Prism.Wpf/8.1.0-g": {
+    "Prism.Wpf/8.1.1-g6440a4b3ee": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

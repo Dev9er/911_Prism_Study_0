@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "Prism.DryIoc.Wpf/8.1.0-g": {
+      "Prism.DryIoc.Wpf/8.1.1-g6440a4b3ee": {
         "dependencies": {
           "DryIoc.dll": "4.7.7",
           "Microsoft.NETFramework.ReferenceAssemblies": "1.0.2",
@@ -126,7 +126,7 @@
     }
   },
   "libraries": {
-    "Prism.DryIoc.Wpf/8.1.0-g": {
+    "Prism.DryIoc.Wpf/8.1.1-g6440a4b3ee": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
