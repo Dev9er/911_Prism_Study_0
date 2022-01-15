@@ -1,0 +1,2793 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prism.Forms.Regions</name>
+    </assembly>
+    <members>
+        <member name="T:Prism.Common.ObservableObject`1">
+            <summary>
+            Class that wraps an object, so that other classes can notify for Change events. Typically, this class is set as
+            a Bindable Property on BindableObjects, and allows other classes to observe any changes in the Value.
+            </summary>
+            <typeparam name="T">The type of the property that's wrapped in the Observable object</typeparam>
+        </member>
+        <member name="F:Prism.Common.ObservableObject`1.ValueProperty">
+            <summary>
+            Identifies the Value property of the ObservableObject
+            </summary>
+        </member>
+        <member name="P:Prism.Common.ObservableObject`1.Value">
+            <summary>
+            The value that's wrapped inside the ObservableObject.
+            </summary>
+        </member>
+        <member name="T:Prism.Ioc.RegionNavigationRegistrationExtensions">
+            <summary>
+            Provides Navigation Registration Extensions for Region Navigation
+            </summary>
+        </member>
+        <member name="M:Prism.Ioc.RegionNavigationRegistrationExtensions.RegisterForRegionNavigation``1(Prism.Ioc.IContainerRegistry,System.String)">
+            <summary>
+            Registers a <see cref="T:Xamarin.Forms.View"/> for region navigation.
+            </summary>
+            <typeparam name="TView">The Type of <see cref="T:Xamarin.Forms.View"/> to register</typeparam>
+            <param name="containerRegistry"><see cref="T:Prism.Ioc.IContainerRegistry"/> used to register type for Navigation.</param>
+            <param name="name">The unique name to register with the View</param>
+        </member>
+        <member name="M:Prism.Ioc.RegionNavigationRegistrationExtensions.RegisterForRegionNavigation``2(Prism.Ioc.IContainerRegistry,System.String)">
+            <summary>
+            Registers a <see cref="T:Xamarin.Forms.View"/> for region navigation.
+            </summary>
+            <typeparam name="TView">The Type of <see cref="T:Xamarin.Forms.View" />to register</typeparam>
+            <typeparam name="TViewModel">The ViewModel to use as the BindingContext for the View</typeparam>
+            <param name="name">The unique name to register with the View</param>
+            <param name="containerRegistry"></param>
+        </member>
+        <member name="T:Prism.Ioc.RegionRegistrationExtensions">
+            <summary>
+            Provides registration and configuration helpers for Region Navigation
+            </summary>
+        </member>
+        <member name="M:Prism.Ioc.RegionRegistrationExtensions.RegisterRegionServices(Prism.Ioc.IContainerRegistry,System.Action{Prism.Regions.Adapters.RegionAdapterMappings},System.Action{Prism.Regions.Behaviors.IRegionBehaviorFactory})">
+            <summary>
+            Registers the default RegionManager
+            </summary>
+            <param name="containerRegistry">The current <see cref="T:Prism.Ioc.IContainerRegistry" /></param>
+            <param name="configureAdapters">A configuration delegate to Register Adapter Mappings.</param>
+            <param name="configureBehaviors">A configuration delegate to Add custom Region Behaviors.</param>
+            <returns>The current <see cref="T:Prism.Ioc.IContainerRegistry" /></returns>
+        </member>
+        <member name="T:Prism.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Prism.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Prism.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Prism.Properties.Resources.AdapterInvalidTypeException">
+            <summary>
+              Looks up a localized string similar to The object must be of type &apos;{0}&apos; in order to use the current region adapter..
+            </summary>
+        </member>
+        <member name="P:Prism.Properties.Resources.CannotChangeRegionNameException">
+            <summary>
+              Looks up a localized string similar to Cannot change the region name once is set. The current region name is &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Prism.Properties.Resources.CannotCreateNavigationTarget">
+            <summary>
+              Looks up a localized string similar to Cannot create navigation target &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Prism.Properties.Resources.CanOnlyAddTypesThatInheritIFromRegionBehavior">
+            <summary>
+              Looks up a localized string similar to Type &apos;{0}&apos; does not implement from IRegionBehavior..
+            </summary>
+        </member>
+        <member name="P:Prism.Properties.Resources.CarouselViewHasItemsSourceException">
+            <summary>
+              Looks up a localized string similar to CarouselView&apos;s ItemSource property is not empty. 
+               This control is being associated with a region, but the control is already bound to something else. 
+               If you did not explicitly set the control&apos;s ItemSource property, 
+               this exception may be caused by a change in the value of the inherited RegionManager attached property..
+            </summary>
+        </member>
+        <member name="P:Prism.Properties.Resources.CollectionViewHasItemsSourceException">
+            <summary>
+              Looks up a localized string similar to CollectionView&apos;s ItemSource property is not empty. 
+               This control is being associated with a region, but the control is already bound to something else. 
+               If you did not explicitly set the control&apos;s ItemsSource property, this exception may be 
+               caused by a change in the value of the inherited RegionManager attached property..
+            </summary>
+        </member>
+        <member name="P:Prism.Properties.Resources.ContentViewHasContentException">
+            <summary>
+              Looks up a localized string similar to ContentView&apos;s Content property is not empty. 
+               This control is being associated with a region, but the control is already bound to something else. 
+               If you did not explicitly set the control&apos;s Content property, 
+               this exception may be caused by a change in the value of the inherited RegionManager attached property..
+            </summary>
+        </member>
+        <member name="P:Prism.Properties.Resources.DeactiveNotPossibleException">
+            <summary>
+              Looks up a localized string similar to Deactivation is not possible in this type of region..
+            </summary>
+        </member>
+        <member name="P:Prism.Properties.Resources.HostControlCannotBeNull">
+            <summary>
+              Looks up a localized string similar to HostControl cannot have null value when behavior attaches..
+            </summary>
+        </member>
+        <member name="P:Prism.Properties.Resources.HostControlCannotBeSetAfterAttach">
+            <summary>
+              Looks up a localized string similar to The HostControl property cannot be set after Attach method has been called..
+            </summary>
+        </member>
+        <member name="P:Prism.Properties.Resources.LayoutViewHasChildrenException">
+            <summary>
+              Looks up a localized string similar to Layout&lt;View&gt;&apos;s Children property is not empty. 
+               This control is being associated with a region, but the control is already bound to something else. 
+               If you did not explicitly set the control&apos;s Children or ItemsSource property, 
+               this exception may be caused by a change in the value of the inherited RegionManager attached property..
+            </summary>
+        </member>
+        <member name="P:Prism.Properties.Resources.MappingExistsException">
+            <summary>
+              Looks up a localized string similar to Mapping with the given type is already registered: {0}..
+            </summary>
+        </member>
+        <member name="P:Prism.Properties.Resources.NavigationServiceHasNoRegion">
+            <summary>
+              Looks up a localized string similar to Navigation cannot proceed until a region is set for the RegionNavigationService..
+            </summary>
+        </member>
+        <member name="P:Prism.Properties.Resources.NoRegionAdapterException">
+            <summary>
+              Looks up a localized string similar to The IRegionAdapter for the type {0} is not registered in the region adapter mappings. You can register an IRegionAdapter for this control by overriding the ConfigureRegionAdapterMappings method in the bootstrapper..
+            </summary>
+        </member>
+        <member name="P:Prism.Properties.Resources.OnViewRegisteredException">
+            <summary>
+              Looks up a localized string similar to An exception has occurred while trying to add a view to region &apos;{0}&apos;. 
+               - The most likely causing exception was was: &apos;{1}&apos;.
+               But also check the InnerExceptions for more detail or call .GetRootException()..
+            </summary>
+        </member>
+        <member name="P:Prism.Properties.Resources.RegionBehaviorAttachCannotBeCallWithNullRegion">
+            <summary>
+              Looks up a localized string similar to The Attach method cannot be called when Region property is null..
+            </summary>
+        </member>
+        <member name="P:Prism.Properties.Resources.RegionBehaviorRegionCannotBeSetAfterAttach">
+            <summary>
+              Looks up a localized string similar to The Region property cannot be set after Attach method has been called..
+            </summary>
+        </member>
+        <member name="P:Prism.Properties.Resources.RegionCreationException">
+            <summary>
+              Looks up a localized string similar to An exception occurred while creating a region with name &apos;{0}&apos;. The exception was: {1}..
+            </summary>
+        </member>
+        <member name="P:Prism.Properties.Resources.RegionManagerWithDifferentNameException">
+            <summary>
+              Looks up a localized string similar to The region being added already has a name of &apos;{0}&apos; and cannot be added to the region manager with a different name (&apos;{1}&apos;)..
+            </summary>
+        </member>
+        <member name="P:Prism.Properties.Resources.RegionNameCannotBeEmptyException">
+            <summary>
+              Looks up a localized string similar to The region name cannot be null or empty..
+            </summary>
+        </member>
+        <member name="P:Prism.Properties.Resources.RegionNameExistsException">
+            <summary>
+              Looks up a localized string similar to Region with the given name is already registered: {0}.
+            </summary>
+        </member>
+        <member name="P:Prism.Properties.Resources.RegionNotFound">
+            <summary>
+              Looks up a localized string similar to This RegionManager does not contain a Region with the name &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Prism.Properties.Resources.RegionNotInRegionManagerException">
+            <summary>
+              Looks up a localized string similar to The region manager does not contain the {0} region..
+            </summary>
+        </member>
+        <member name="P:Prism.Properties.Resources.RegionViewExistsException">
+            <summary>
+              Looks up a localized string similar to View already exists in region..
+            </summary>
+        </member>
+        <member name="P:Prism.Properties.Resources.RegionViewNameExistsException">
+            <summary>
+              Looks up a localized string similar to View with name &apos;{0}&apos; already exists in the region..
+            </summary>
+        </member>
+        <member name="P:Prism.Properties.Resources.ScrollViewHasContentException">
+            <summary>
+              Looks up a localized string similar to ScrollView&apos;s Content property is not empty. 
+               This control is being associated with a region, but the control is already bound to something else. 
+               If you did not explicitly set the control&apos;s Content property, 
+               this exception may be caused by a change in the value of the inherited RegionManager attached property..
+            </summary>
+        </member>
+        <member name="P:Prism.Properties.Resources.StringCannotBeNullOrEmpty">
+            <summary>
+              Looks up a localized string similar to The provided String argument {0} must not be null or empty..
+            </summary>
+        </member>
+        <member name="P:Prism.Properties.Resources.TypeWithKeyNotRegistered">
+            <summary>
+              Looks up a localized string similar to No BehaviorType with key &apos;{0}&apos; was registered..
+            </summary>
+        </member>
+        <member name="P:Prism.Properties.Resources.UpdateRegionException">
+            <summary>
+              Looks up a localized string similar to An exception occurred while trying to create region objects. 
+               - The most likely causing exception was: &apos;{0}&apos;.
+               But also check the InnerExceptions for more detail or call .GetRootException()..
+            </summary>
+        </member>
+        <member name="P:Prism.Properties.Resources.ViewNotInRegionException">
+            <summary>
+              Looks up a localized string similar to The region does not contain the specified view..
+            </summary>
+        </member>
+        <member name="T:Prism.Regions.Adapters.CarouselViewRegionAdapter">
+            <summary>
+            Adapter that creates a new <see cref="T:Prism.Regions.SingleActiveRegion"/> and monitors its
+            active view to set it on the adapted <see cref="T:Xamarin.Forms.CarouselView"/>.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Adapters.CarouselViewRegionAdapter.#ctor(Prism.Regions.Behaviors.IRegionBehaviorFactory,Prism.Ioc.IContainerProvider)">
+            <summary>
+            Initializes a new instance of <see cref="T:Prism.Regions.Adapters.CarouselViewRegionAdapter"/>.
+            </summary>
+            <param name="regionBehaviorFactory">The factory used to create the region behaviors to attach to the created regions.</param>
+            <param name="container">The <see cref="T:Prism.Ioc.IContainerProvider"/> used to resolve a new Region.</param>
+        </member>
+        <member name="M:Prism.Regions.Adapters.CarouselViewRegionAdapter.Adapt(Prism.Regions.IRegion,Xamarin.Forms.CarouselView)">
+            <summary>
+            Adapts a <see cref="T:Xamarin.Forms.CarouselView"/> to an <see cref="T:Prism.Regions.IRegion"/>.
+            </summary>
+            <param name="region">The new region being used.</param>
+            <param name="regionTarget">The object to adapt.</param>
+        </member>
+        <member name="M:Prism.Regions.Adapters.CarouselViewRegionAdapter.CreateRegion">
+            <summary>
+            Creates a new instance of <see cref="T:Prism.Regions.SingleActiveRegion"/>.
+            </summary>
+            <returns>A new instance of <see cref="T:Prism.Regions.SingleActiveRegion"/>.</returns>
+        </member>
+        <member name="T:Prism.Regions.Adapters.CollectionViewRegionAdapter">
+            <summary>
+            Adapter that creates a new <see cref="T:Prism.Regions.Region"/> and monitors its
+            active view to set it on the adapted <see cref="T:Xamarin.Forms.CollectionView"/>.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Adapters.CollectionViewRegionAdapter.#ctor(Prism.Regions.Behaviors.IRegionBehaviorFactory,Prism.Ioc.IContainerProvider)">
+            <summary>
+            Initializes a new instance of <see cref="T:Prism.Regions.Adapters.CollectionViewRegionAdapter"/>.
+            </summary>
+            <param name="regionBehaviorFactory">The factory used to create the region behaviors to attach to the created regions.</param>
+            <param name="container">The <see cref="T:Prism.Ioc.IContainerProvider"/> used to resolve a new Region.</param>
+        </member>
+        <member name="M:Prism.Regions.Adapters.CollectionViewRegionAdapter.Adapt(Prism.Regions.IRegion,Xamarin.Forms.CollectionView)">
+            <summary>
+            Adapts a <see cref="T:Xamarin.Forms.CollectionView"/> to an <see cref="T:Prism.Regions.IRegion"/>.
+            </summary>
+            <param name="region">The new region being used.</param>
+            <param name="regionTarget">The object to adapt.</param>
+        </member>
+        <member name="M:Prism.Regions.Adapters.CollectionViewRegionAdapter.CreateRegion">
+            <summary>
+            Creates a new instance of <see cref="T:Prism.Regions.IRegion"/>.
+            </summary>
+            <returns>A new instance of <see cref="T:Prism.Regions.Region"/>.</returns>
+        </member>
+        <member name="T:Prism.Regions.Adapters.ContentViewRegionAdapter">
+            <summary>
+            Adapter that creates a new <see cref="T:Prism.Regions.SingleActiveRegion"/> and monitors its
+            active view to set it on the adapted <see cref="T:Xamarin.Forms.ContentView"/>.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Adapters.ContentViewRegionAdapter.#ctor(Prism.Regions.Behaviors.IRegionBehaviorFactory,Prism.Ioc.IContainerProvider)">
+            <summary>
+            Initializes a new instance of <see cref="T:Prism.Regions.Adapters.ContentViewRegionAdapter"/>.
+            </summary>
+            <param name="regionBehaviorFactory">The factory used to create the region behaviors to attach to the created regions.</param>
+            <param name="container">The <see cref="T:Prism.Ioc.IContainerProvider"/> used to resolve a new Region.</param>
+        </member>
+        <member name="T:Prism.Regions.Adapters.ContentViewRegionAdapter`1">
+            <summary>
+            Adapter that creates a new <see cref="T:Prism.Regions.SingleActiveRegion"/> and monitors its
+            active view to set it on the adapted <see cref="T:Xamarin.Forms.ContentView"/>.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Adapters.ContentViewRegionAdapter`1.#ctor(Prism.Regions.Behaviors.IRegionBehaviorFactory,Prism.Ioc.IContainerProvider)">
+            <summary>
+            Initializes a new instance of <see cref="T:Prism.Regions.Adapters.ContentViewRegionAdapter`1"/>.
+            </summary>
+            <param name="regionBehaviorFactory">The factory used to create the region behaviors to attach to the created regions.</param>
+            <param name="container">The <see cref="T:Prism.Ioc.IContainerProvider"/> used to resolve a new Region.</param>
+        </member>
+        <member name="M:Prism.Regions.Adapters.ContentViewRegionAdapter`1.Adapt(Prism.Regions.IRegion,`0)">
+            <summary>
+            Adapts a <see cref="T:Xamarin.Forms.ContentView"/> to an <see cref="T:Prism.Regions.IRegion"/>.
+            </summary>
+            <param name="region">The new region being used.</param>
+            <param name="regionTarget">The object to adapt.</param>
+        </member>
+        <member name="M:Prism.Regions.Adapters.ContentViewRegionAdapter`1.CreateRegion">
+            <summary>
+            Creates a new instance of <see cref="T:Prism.Regions.SingleActiveRegion"/>.
+            </summary>
+            <returns>A new instance of <see cref="T:Prism.Regions.SingleActiveRegion"/>.</returns>
+        </member>
+        <member name="T:Prism.Regions.Adapters.IRegionAdapter">
+            <summary>
+            Defines an interfaces to adapt an object and bind it to a new <see cref="T:Prism.Regions.IRegion"/>.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Adapters.IRegionAdapter.Initialize(Xamarin.Forms.VisualElement,System.String)">
+            <summary>
+            Adapts an object and binds it to a new <see cref="T:Prism.Regions.IRegion"/>.
+            </summary>
+            <param name="regionTarget">The object to adapt.</param>
+            <param name="regionName">The name of the region to be created.</param>
+            <returns>The new instance of <see cref="T:Prism.Regions.IRegion"/> that the <paramref name="regionTarget"/> is bound to.</returns>
+        </member>
+        <member name="T:Prism.Regions.Adapters.LayoutViewRegionAdapter">
+            <summary>
+            Adapter that creates a new <see cref="T:Prism.Regions.Region"/> and monitors its
+            active view to set it on the adapted <see cref="T:Xamarin.Forms.Layout`1"/>.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Adapters.LayoutViewRegionAdapter.#ctor(Prism.Regions.Behaviors.IRegionBehaviorFactory,Prism.Ioc.IContainerProvider)">
+            <summary>
+            Initializes a new instance of <see cref="T:Prism.Regions.Adapters.LayoutViewRegionAdapter"/>.
+            </summary>
+            <param name="regionBehaviorFactory">The factory used to create the region behaviors to attach to the created regions.</param>
+            <param name="container">The <see cref="T:Prism.Ioc.IContainerProvider"/> used to resolve a new Region.</param>
+        </member>
+        <member name="M:Prism.Regions.Adapters.LayoutViewRegionAdapter.Adapt(Prism.Regions.IRegion,Xamarin.Forms.Layout{Xamarin.Forms.View})">
+            <summary>
+            Adapts a <see cref="T:Xamarin.Forms.Layout`1"/> to an <see cref="T:Prism.Regions.IRegion"/>.
+            </summary>
+            <param name="region">The new region being used.</param>
+            <param name="regionTarget">The object to adapt.</param>
+        </member>
+        <member name="M:Prism.Regions.Adapters.LayoutViewRegionAdapter.CreateRegion">
+            <summary>
+            Creates a new instance of <see cref="T:Prism.Regions.IRegion"/>.
+            </summary>
+            <returns>A new instance of <see cref="T:Prism.Regions.Region"/>.</returns>
+        </member>
+        <member name="T:Prism.Regions.Adapters.RegionAdapterBase`1">
+            <summary>
+            Base class to facilitate the creation of <see cref="T:Prism.Regions.Adapters.IRegionAdapter"/> implementations.
+            </summary>
+            <typeparam name="T">Type of object to adapt.</typeparam>
+        </member>
+        <member name="M:Prism.Regions.Adapters.RegionAdapterBase`1.#ctor(Prism.Regions.Behaviors.IRegionBehaviorFactory)">
+            <summary>
+            Initializes a new instance of <see cref="T:Prism.Regions.Adapters.RegionAdapterBase`1"/>.
+            </summary>
+            <param name="regionBehaviorFactory">The factory used to create the region behaviors to attach to the created regions.</param>
+        </member>
+        <member name="P:Prism.Regions.Adapters.RegionAdapterBase`1.RegionBehaviorFactory">
+            <summary>
+            Gets or sets the factory used to create the region behaviors to attach to the created regions.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Adapters.RegionAdapterBase`1.Initialize(`0,System.String)">
+            <summary>
+            Adapts an object and binds it to a new <see cref="T:Prism.Regions.IRegion"/>.
+            </summary>
+            <param name="regionTarget">The object to adapt.</param>
+            <param name="regionName">The name of the region to be created.</param>
+            <returns>The new instance of <see cref="T:Prism.Regions.IRegion"/> that the <paramref name="regionTarget"/> is bound to.</returns>
+        </member>
+        <member name="M:Prism.Regions.Adapters.RegionAdapterBase`1.Prism#Regions#Adapters#IRegionAdapter#Initialize(Xamarin.Forms.VisualElement,System.String)">
+            <summary>
+            Adapts an object and binds it to a new <see cref="T:Prism.Regions.IRegion"/>.
+            </summary>
+            <param name="regionTarget">The object to adapt.</param>
+            <param name="regionName">The name of the region to be created.</param>
+            <returns>The new instance of <see cref="T:Prism.Regions.IRegion"/> that the <paramref name="regionTarget"/> is bound to.</returns>
+            <remarks>This methods performs validation to check that <paramref name="regionTarget"/>
+            is of type <typeparamref name="T"/>.</remarks>
+            <exception cref="T:System.ArgumentNullException">When <paramref name="regionTarget"/> is <see langword="null" />.</exception>
+            <exception cref="T:System.InvalidOperationException">When <paramref name="regionTarget"/> is not of type <typeparamref name="T"/>.</exception>
+        </member>
+        <member name="M:Prism.Regions.Adapters.RegionAdapterBase`1.AttachDefaultBehaviors(Prism.Regions.IRegion,`0)">
+            <summary>
+            This method adds the default behaviors by using the <see cref="T:Prism.Regions.Behaviors.IRegionBehaviorFactory"/> object.
+            </summary>
+            <param name="region">The region being used.</param>
+            <param name="regionTarget">The object to adapt.</param>
+        </member>
+        <member name="M:Prism.Regions.Adapters.RegionAdapterBase`1.AttachBehaviors(Prism.Regions.IRegion,`0)">
+            <summary>
+            Template method to attach new behaviors.
+            </summary>
+            <param name="region">The region being used.</param>
+            <param name="regionTarget">The object to adapt.</param>
+        </member>
+        <member name="M:Prism.Regions.Adapters.RegionAdapterBase`1.Adapt(Prism.Regions.IRegion,`0)">
+            <summary>
+            Template method to adapt the object to an <see cref="T:Prism.Regions.IRegion"/>.
+            </summary>
+            <param name="region">The new region being used.</param>
+            <param name="regionTarget">The object to adapt.</param>
+        </member>
+        <member name="M:Prism.Regions.Adapters.RegionAdapterBase`1.CreateRegion">
+            <summary>
+            Template method to create a new instance of <see cref="T:Prism.Regions.IRegion"/>
+            that will be used to adapt the object.
+            </summary>
+            <returns>A new instance of <see cref="T:Prism.Regions.IRegion"/>.</returns>
+        </member>
+        <member name="T:Prism.Regions.Adapters.RegionAdapterMappings">
+            <summary>
+            This class maps <see cref="T:System.Type"/> with <see cref="T:Prism.Regions.Adapters.IRegionAdapter"/>.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Adapters.RegionAdapterMappings.RegisterMapping``2">
+            <summary>
+            Registers the mapping between a type and an adapter.
+            </summary>
+            <typeparam name="TControl">The type of the control</typeparam>
+            <typeparam name="TAdapter">The type of the IRegionAdapter to use with the TControl</typeparam>
+            <exception cref="T:System.InvalidOperationException">Throws <see cref="T:System.InvalidOperationException"/> when a mapping has already been defined for a specified control type.</exception>
+        </member>
+        <member name="M:Prism.Regions.Adapters.RegionAdapterMappings.RegisterOrReplaceMapping``2">
+            <summary>
+            Removes an existing Registration if one exists and registers the new mapping between a type and an adapter.
+            </summary>
+            <typeparam name="TControl">The type of the control</typeparam>
+            <typeparam name="TAdapter">The type of the IRegionAdapter to use with the TControl</typeparam>
+        </member>
+        <member name="M:Prism.Regions.Adapters.RegionAdapterMappings.GetMapping(System.Type)">
+            <summary>
+            Returns the adapter associated with the type provided.
+            </summary>
+            <param name="controlType">The type to obtain the <see cref="T:Prism.Regions.Adapters.IRegionAdapter"/> mapped.</param>
+            <returns>The <see cref="T:Prism.Regions.Adapters.IRegionAdapter"/> mapped to the <paramref name="controlType"/>.</returns>
+            <remarks>This class will look for a registered type for <paramref name="controlType"/> and if there is not any,
+            it will look for a registered type for any of its ancestors in the class hierarchy.
+            If there is no registered type for <paramref name="controlType"/> or any of its ancestors,
+            an exception will be thrown.</remarks>
+            <exception cref="T:System.Collections.Generic.KeyNotFoundException">When there is no registered type for <paramref name="controlType"/> or any of its ancestors.</exception>
+        </member>
+        <member name="M:Prism.Regions.Adapters.RegionAdapterMappings.GetMapping``1">
+            <summary>
+            Returns the adapter associated with the type provided.
+            </summary>
+            <typeparam name="T">The control type used to obtain the <see cref="T:Prism.Regions.Adapters.IRegionAdapter"/> mapped.</typeparam>
+            <returns>The <see cref="T:Prism.Regions.Adapters.IRegionAdapter"/> mapped to the <typeparamref name="T"/>.</returns>
+            <remarks>This class will look for a registered type for <typeparamref name="T"/> and if there is not any,
+            it will look for a registered type for any of its ancestors in the class hierarchy.
+            If there is no registered type for <typeparamref name="T"/> or any of its ancestors,
+            an exception will be thrown.</remarks>
+            <exception cref="T:System.Collections.Generic.KeyNotFoundException">When there is no registered type for <typeparamref name="T"/> or any of its ancestors.</exception>
+        </member>
+        <member name="T:Prism.Regions.Adapters.ScrollViewRegionAdapter">
+            <summary>
+            Adapter that creates a new <see cref="T:Prism.Regions.Region"/> and monitors its
+            active view to set it on the adapted <see cref="T:Xamarin.Forms.ScrollView"/>.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Adapters.ScrollViewRegionAdapter.#ctor(Prism.Regions.Behaviors.IRegionBehaviorFactory,Prism.Ioc.IContainerProvider)">
+            <summary>
+            Initializes a new instance of <see cref="T:Prism.Regions.Adapters.ScrollViewRegionAdapter"/>.
+            </summary>
+            <param name="regionBehaviorFactory">The factory used to create the region behaviors to attach to the created regions.</param>
+            <param name="container">The <see cref="T:Prism.Ioc.IContainerProvider"/> used to resolve a new Region.</param>
+        </member>
+        <member name="M:Prism.Regions.Adapters.ScrollViewRegionAdapter.Adapt(Prism.Regions.IRegion,Xamarin.Forms.ScrollView)">
+            <summary>
+            Adapts a <see cref="T:Xamarin.Forms.ScrollView"/> to an <see cref="T:Prism.Regions.IRegion"/>.
+            </summary>
+            <param name="region">The new region being used.</param>
+            <param name="regionTarget">The object to adapt.</param>
+        </member>
+        <member name="M:Prism.Regions.Adapters.ScrollViewRegionAdapter.CreateRegion">
+            <summary>
+            Creates a new instance of <see cref="T:Prism.Regions.Region"/>.
+            </summary>
+            <returns>A new instance of <see cref="T:Prism.Regions.Region"/>.</returns>
+        </member>
+        <member name="T:Prism.Regions.AllActiveRegion">
+            <summary>
+            Region that keeps all the views in it as active. Deactivation of views is not allowed.
+            </summary>
+        </member>
+        <member name="P:Prism.Regions.AllActiveRegion.ActiveViews">
+            <summary>
+            Gets a readonly view of the collection of all the active views in the region. These are all the added views.
+            </summary>
+            <value>An <see cref="T:Prism.Regions.IViewsCollection"/> of all the active views.</value>
+        </member>
+        <member name="M:Prism.Regions.AllActiveRegion.Deactivate(Xamarin.Forms.VisualElement)">
+            <summary>
+            Deactivate is not valid in this Region. This method will always throw <see cref="T:System.InvalidOperationException"/>.
+            </summary>
+            <param name="view">The view to deactivate.</param>
+            <exception cref="T:System.InvalidOperationException">Every time this method is called.</exception>
+        </member>
+        <member name="T:Prism.Regions.Behaviors.AutoPopulateRegionBehavior">
+            <summary>
+            Populates the target region with the views registered to it in the <see cref="T:Prism.Regions.IRegionViewRegistry"/>.
+            </summary>
+        </member>
+        <member name="F:Prism.Regions.Behaviors.AutoPopulateRegionBehavior.BehaviorKey">
+            <summary>
+            The key of this behavior.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.AutoPopulateRegionBehavior.#ctor(Prism.Regions.IRegionViewRegistry)">
+            <summary>
+            Creates a new instance of the AutoPopulateRegionBehavior
+            associated with the <see cref="T:Prism.Regions.IRegionViewRegistry"/> received.
+            </summary>
+            <param name="regionViewRegistry"><see cref="T:Prism.Regions.IRegionViewRegistry"/> that the behavior will monitor for views to populate the region.</param>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.AutoPopulateRegionBehavior.OnAttach">
+            <summary>
+            Attaches the AutoPopulateRegionBehavior to the Region.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.AutoPopulateRegionBehavior.CreateViewsToAutoPopulate">
+            <summary>
+            Returns a collection of views that will be added to the
+            View collection.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.AutoPopulateRegionBehavior.AddViewIntoRegion(Xamarin.Forms.VisualElement)">
+            <summary>
+            Adds a view into the views collection of this region.
+            </summary>
+            <param name="viewToAdd"></param>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.AutoPopulateRegionBehavior.OnViewRegistered(System.Object,Prism.Regions.ViewRegisteredEventArgs)">
+            <summary>
+            Handler of the event that fires when a new viewtype is registered to the registry.
+            </summary>
+            <remarks>Although this is a public method to support Weak Delegates in Silverlight, it should not be called by the user.</remarks>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:Prism.Regions.Behaviors.BindRegionContextToVisualElementBehavior">
+            <summary>
+            Defines a behavior that forwards the <see cref="F:Prism.Regions.Xaml.RegionManager.RegionContextProperty"/> 
+            to the views in the region.
+            </summary>
+        </member>
+        <member name="F:Prism.Regions.Behaviors.BindRegionContextToVisualElementBehavior.BehaviorKey">
+            <summary>
+            The key of this behavior.
+            </summary>
+        </member>
+        <member name="P:Prism.Regions.Behaviors.BindRegionContextToVisualElementBehavior.Region">
+            <summary>
+            Behavior's attached region.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.BindRegionContextToVisualElementBehavior.Attach">
+            <summary>
+            Attaches the behavior to the specified region.
+            </summary>
+        </member>
+        <member name="T:Prism.Regions.Behaviors.ClearChildViewsRegionBehavior">
+            <summary>
+            Behavior that removes the RegionManager attached property of all the views in a region once the RegionManager property of a region becomes null.
+            This is useful when removing views with nested regions, to ensure these nested regions get removed from the RegionManager as well.
+            <remarks>
+            This behavior does not apply by default.
+            In order to activate it, the ClearChildViews attached property must be set to True in the view containing the affected child regions.
+            </remarks>
+            </summary>
+        </member>
+        <member name="F:Prism.Regions.Behaviors.ClearChildViewsRegionBehavior.BehaviorKey">
+            <summary>
+            The behavior key.
+            </summary>
+        </member>
+        <member name="F:Prism.Regions.Behaviors.ClearChildViewsRegionBehavior.ClearChildViewsProperty">
+            <summary>
+            This attached property can be defined on a view to indicate that regions defined in it must be removed from the region manager when the parent view gets removed from a region.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.ClearChildViewsRegionBehavior.GetClearChildViews(Xamarin.Forms.BindableObject)">
+            <summary>
+            Gets the ClearChildViews attached property from a BindableObject.
+            </summary>
+            <param name="target">The object from which to get the value.</param>
+            <returns>The value of the ClearChildViews attached property in the target specified.</returns>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.ClearChildViewsRegionBehavior.SetClearChildViews(Xamarin.Forms.BindableObject,System.Boolean)">
+            <summary>
+            Sets the ClearChildViews attached property in a BindableObject.
+            </summary>
+            <param name="target">The object in which to set the value.</param>
+            <param name="value">The value of to set in the target object's ClearChildViews attached property.</param>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.ClearChildViewsRegionBehavior.OnAttach">
+            <summary>
+            Subscribes to the <see cref="T:Prism.Regions.Region"/>'s PropertyChanged method to monitor its RegionManager property.
+            </summary>
+        </member>
+        <member name="T:Prism.Regions.Behaviors.DelayedRegionCreationBehavior">
+            <summary>
+            Behavior that creates a new <see cref="T:Prism.Regions.IRegion"/>, when the control that will host the <see cref="T:Prism.Regions.IRegion"/> (see <see cref="P:Prism.Regions.Behaviors.DelayedRegionCreationBehavior.TargetElement"/>)
+            is added to the VisualTree. This behavior will use the <see cref="T:Prism.Regions.Adapters.RegionAdapterMappings"/> class to find the right type of adapter to create
+            the region. After the region is created, this behavior will detach.
+            </summary>
+            <remarks>
+            Attached property value inheritance is not available in Silverlight, so the current approach walks up the visual tree when requesting a region from a region manager.
+            The <see cref="T:Prism.Regions.Behaviors.RegionManagerRegistrationBehavior"/> is now responsible for walking up the Tree.
+            </remarks>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.DelayedRegionCreationBehavior.#ctor(Prism.Regions.Adapters.RegionAdapterMappings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prism.Regions.Behaviors.DelayedRegionCreationBehavior"/> class.
+            </summary>
+            <param name="regionAdapterMappings">
+            The region adapter mappings, that are used to find the correct adapter for
+            a given controltype. The controltype is determined by the <see name="TargetElement"/> value.
+            </param>
+        </member>
+        <member name="P:Prism.Regions.Behaviors.DelayedRegionCreationBehavior.RegionManagerAccessor">
+            <summary>
+            Sets a class that interfaces between the <see cref="T:Prism.Regions.RegionManager"/> 's static properties/events and this behavior,
+            so this behavior can be tested in isolation.
+            </summary>
+            <value>The region manager accessor.</value>
+        </member>
+        <member name="P:Prism.Regions.Behaviors.DelayedRegionCreationBehavior.TargetElement">
+            <summary>
+            The element that will host the Region.
+            </summary>
+            <value>The target element.</value>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.DelayedRegionCreationBehavior.Attach">
+            <summary>
+            Start monitoring the <see cref="T:Prism.Regions.RegionManager"/> and the <see cref="P:Prism.Regions.Behaviors.DelayedRegionCreationBehavior.TargetElement"/> to detect when the <see cref="P:Prism.Regions.Behaviors.DelayedRegionCreationBehavior.TargetElement"/> becomes
+            part of the Visual Tree. When that happens, the Region will be created and the behavior will <see cref="M:Prism.Regions.Behaviors.DelayedRegionCreationBehavior.Detach"/>.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.DelayedRegionCreationBehavior.Detach">
+            <summary>
+            Stop monitoring the <see cref="T:Prism.Regions.RegionManager"/> and the  <see cref="P:Prism.Regions.Behaviors.DelayedRegionCreationBehavior.TargetElement"/>, so that this behavior can be garbage collected.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.DelayedRegionCreationBehavior.OnUpdatingRegions(System.Object,System.EventArgs)">
+            <summary>
+            Called when the <see cref="T:Prism.Regions.IRegionManager"/> is updating it's <see cref="P:Prism.Regions.IRegionManager.Regions"/> collection.
+            </summary>
+            <param name="sender">The <see cref="T:Prism.Regions.IRegionManager"/>. </param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.DelayedRegionCreationBehavior.CreateRegion(Xamarin.Forms.VisualElement,System.String)">
+            <summary>
+            Method that will create the region, by calling the right <see cref="T:Prism.Regions.Adapters.IRegionAdapter"/>.
+            </summary>
+            <param name="targetElement">The target element that will host the <see cref="T:Prism.Regions.IRegion"/>.</param>
+            <param name="regionName">Name of the region.</param>
+            <returns>The created <see cref="T:Prism.Regions.IRegion"/></returns>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.DelayedRegionCreationBehavior.Track">
+            <summary>
+            Add the instance of this class to <see cref="F:Prism.Regions.Behaviors.DelayedRegionCreationBehavior._instanceTracker"/> to keep it alive
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.DelayedRegionCreationBehavior.Untrack">
+            <summary>
+            Remove the instance of this class from <see cref="F:Prism.Regions.Behaviors.DelayedRegionCreationBehavior._instanceTracker"/>
+            so it can eventually be garbage collected
+            </summary>
+        </member>
+        <member name="T:Prism.Regions.Behaviors.DestructibleRegionBehavior">
+            <summary>
+            Provides a Behavior to Destroy the View/ViewModel when the View is removed from the Region's Views
+            </summary>
+        </member>
+        <member name="F:Prism.Regions.Behaviors.DestructibleRegionBehavior.BehaviorKey">
+            <summary>
+            The key of this behavior.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.DestructibleRegionBehavior.OnAttach">
+            <summary>
+            Attaches the behavior to the specified region.
+            </summary>
+        </member>
+        <member name="T:Prism.Regions.Behaviors.IHostAwareRegionBehavior">
+            <summary>
+            Defines a <see cref="T:Prism.Regions.Behaviors.IRegionBehavior"/> that not allows extensible behaviors on regions which also interact
+            with the target element that the <see cref="T:Prism.Regions.IRegion"/> is attached to.
+            </summary>
+        </member>
+        <member name="P:Prism.Regions.Behaviors.IHostAwareRegionBehavior.HostControl">
+            <summary>
+            Gets or sets the <see cref="T:Xamarin.Forms.VisualElement"/> that the <see cref="T:Prism.Regions.IRegion"/> is attached to.
+            </summary>
+            <value>A <see cref="T:Xamarin.Forms.VisualElement"/> that the <see cref="T:Prism.Regions.IRegion"/> is attached to.
+            This is usually a <see cref="T:Xamarin.Forms.View"/> that is part of the tree.</value>
+        </member>
+        <member name="T:Prism.Regions.Behaviors.IRegionBehavior">
+            <summary>
+            Interface for allowing extensible behavior on regions.
+            </summary>
+        </member>
+        <member name="P:Prism.Regions.Behaviors.IRegionBehavior.Region">
+            <summary>
+            The region that this behavior is extending.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.IRegionBehavior.Attach">
+            <summary>
+            Attaches the behavior to the specified region.
+            </summary>
+        </member>
+        <member name="T:Prism.Regions.Behaviors.IRegionBehaviorCollection">
+            <summary>
+            Defines the interface for a collection of <see cref="T:Prism.Regions.Behaviors.IRegionBehavior"/> classes on a Region.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.IRegionBehaviorCollection.Add(System.String,Prism.Regions.Behaviors.IRegionBehavior)">
+            <summary>
+            Adds a <see cref="T:Prism.Regions.Behaviors.IRegionBehavior"/> to the collection, using the specified key as an indexer. 
+            </summary>
+            <param name="key">
+            The key that specifies the type of <see cref="T:Prism.Regions.Behaviors.IRegionBehavior"/> that's added. 
+            </param>
+            <param name="regionBehavior">The <see cref="T:Prism.Regions.Behaviors.IRegionBehavior"/> to add.</param>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.IRegionBehaviorCollection.ContainsKey(System.String)">
+            <summary>
+            Checks if a <see cref="T:Prism.Regions.Behaviors.IRegionBehavior"/> with the specified key is already present. 
+            </summary>
+            <param name="key">The key to use to find a particular <see cref="T:Prism.Regions.Behaviors.IRegionBehavior"/>.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Prism.Regions.Behaviors.IRegionBehaviorCollection.Item(System.String)">
+            <summary>
+            Gets the <see cref="T:Prism.Regions.Behaviors.IRegionBehavior"/> with the specified key.
+            </summary>
+            <value>The registered <see cref="T:Prism.Regions.Behaviors.IRegionBehavior"/></value>
+        </member>
+        <member name="T:Prism.Regions.Behaviors.IRegionBehaviorFactory">
+            <summary>
+            Interface for RegionBehaviorFactories. This factory allows the registration of the default set of RegionBehaviors, that will
+            be added to the <see cref="T:Prism.Regions.Behaviors.IRegionBehaviorCollection"/>s of all <see cref="T:Prism.Regions.IRegion"/>s, unless overridden on a 'per-region' basis. 
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.IRegionBehaviorFactory.AddIfMissing``1(System.String)">
+            <summary>
+            Adds a particular type of RegionBehavior if it was not already registered. the <paramref name="behaviorKey"/> string is used to check if the behavior is already present
+            </summary>
+            <typeparam name="TBehavior">Type of the behavior to add.</typeparam>
+            <param name="behaviorKey">The behavior key that's used to find if a certain behavior is already added.</param>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.IRegionBehaviorFactory.ContainsKey(System.String)">
+            <summary>
+            Determines whether a behavior with the specified key already exists
+            </summary>
+            <param name="behaviorKey">The behavior key.</param>
+            <returns>
+            <see langword="true"/> if a behavior with the specified key is present; otherwise, <see langword="false"/>.
+            </returns>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.IRegionBehaviorFactory.CreateFromKey(System.String)">
+            <summary>
+            Creates an instance of the BehaviorType that's registered using the specified key.
+            </summary>
+            <param name="key">The key that's used to register a behavior type.</param>
+            <returns>The created behavior. </returns>
+        </member>
+        <member name="T:Prism.Regions.Behaviors.RegionActiveAwareBehavior">
+            <summary>
+            Behavior that monitors a <see cref="T:Prism.Regions.IRegion"/> object and 
+            changes the value for the <see cref="P:Prism.IActiveAware.IsActive"/> property when
+            an object that implements <see cref="T:Prism.IActiveAware"/> gets added or removed 
+            from the collection.
+            </summary>
+            <remarks>
+            This class can also sync the active state for any scoped regions directly on the view based on the <see cref="T:Prism.Regions.SyncActiveStateAttribute"/>.
+            If you use the <see cref="M:Prism.Regions.Region.Add(Xamarin.Forms.VisualElement,System.String,System.Boolean)" /> method with the createRegionManagerScope option, the scoped manager will be attached to the view.
+            </remarks>
+        </member>
+        <member name="F:Prism.Regions.Behaviors.RegionActiveAwareBehavior.BehaviorKey">
+            <summary>
+            Name that identifies the <see cref="T:Prism.Regions.Behaviors.RegionActiveAwareBehavior"/> behavior in a collection of <see cref="T:Prism.Regions.Behaviors.IRegionBehavior"/>.
+            </summary>
+        </member>
+        <member name="P:Prism.Regions.Behaviors.RegionActiveAwareBehavior.Region">
+            <summary>
+            The region that this behavior is extending
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.RegionActiveAwareBehavior.Attach">
+            <summary>
+            Attaches the behavior to the specified region
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.RegionActiveAwareBehavior.Detach">
+            <summary>
+            Detaches the behavior from the <see cref="T:System.Collections.Specialized.INotifyCollectionChanged"/>.
+            </summary>
+        </member>
+        <member name="T:Prism.Regions.Behaviors.RegionBehavior">
+            <summary>
+            Provides a base class for region's behaviors.
+            </summary>
+        </member>
+        <member name="P:Prism.Regions.Behaviors.RegionBehavior.Region">
+            <summary>
+            Behavior's attached region.
+            </summary>
+        </member>
+        <member name="P:Prism.Regions.Behaviors.RegionBehavior.IsAttached">
+            <summary>
+            Returns <see langword="true"/> if the behavior is attached to a region, <see langword="false"/> otherwise.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.RegionBehavior.Attach">
+            <summary>
+            Attaches the behavior to the region.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.RegionBehavior.OnAttach">
+            <summary>
+            Override this method to perform the logic after the behavior has been attached.
+            </summary>
+        </member>
+        <member name="T:Prism.Regions.Behaviors.RegionBehaviorCollection">
+            <summary>
+            A collection of <see cref="T:Prism.Regions.Behaviors.IRegionBehavior"/> instances, that are stored and retrieved by Key.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.RegionBehaviorCollection.#ctor(Prism.Regions.IRegion)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prism.Regions.Behaviors.RegionBehaviorCollection"/> class and associates it with a region.
+            </summary>
+            <param name="region">The region to associate the behavior collection with.</param>
+        </member>
+        <member name="P:Prism.Regions.Behaviors.RegionBehaviorCollection.Item(System.String)">
+            <summary>
+            Gets the <see cref="T:Prism.Regions.Behaviors.IRegionBehavior"/> with the specified key.
+            </summary>
+            <value>The RegionBehavior that's registered with the key.</value>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.RegionBehaviorCollection.Add(System.String,Prism.Regions.Behaviors.IRegionBehavior)">
+            <summary>
+            Adds a <see cref="T:Prism.Regions.Behaviors.IRegionBehavior"/> to the collection, using the specified key as an indexer.
+            </summary>
+            <param name="key">The key that specifies the type of <see cref="T:Prism.Regions.Behaviors.IRegionBehavior"/> that's added.</param>
+            <param name="regionBehavior">The <see cref="T:Prism.Regions.Behaviors.IRegionBehavior"/> to add.</param>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown is the <paramref name="key"/> parameter is Null,
+            or if the <paramref name="regionBehavior"/> parameter is Null.
+            </exception>
+            <exception cref="T:System.ArgumentException">Thrown if a behavior with the specified Key parameter already exists.</exception>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.RegionBehaviorCollection.ContainsKey(System.String)">
+            <summary>
+            Checks if a <see cref="T:Prism.Regions.Behaviors.IRegionBehavior"/> with the specified key is already present.
+            </summary>
+            <param name="key">The key to use to find a particular <see cref="T:Prism.Regions.Behaviors.IRegionBehavior"/>.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.RegionBehaviorCollection.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>
+            A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.RegionBehaviorCollection.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through a collection.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.IEnumerator"/> object that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="T:Prism.Regions.Behaviors.RegionBehaviorFactory">
+            <summary>
+            Defines a factory that allows the registration of the default set of <see cref="T:Prism.Regions.Behaviors.IRegionBehavior"/>, that will
+            be added to the <see cref="T:Prism.Regions.Behaviors.IRegionBehaviorCollection"/> of all <see cref="T:Prism.Regions.IRegion"/>s, unless overridden on a 'per-region' basis.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.RegionBehaviorFactory.#ctor(Prism.Ioc.IContainerExtension)">
+            <summary>
+            Initializes a new instance of <see cref="T:Prism.Regions.Behaviors.RegionBehaviorFactory"/>.
+            </summary>
+            <param name="container"><see cref="T:Prism.Ioc.IContainerExtension"/> used to create the instance of the behavior from its <see cref="T:System.Type"/>.</param>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.RegionBehaviorFactory.AddIfMissing``1(System.String)">
+            <summary>
+            Adds a particular type of RegionBehavior if it was not already registered. The <paramref name="behaviorKey"/> string is used to check if the behavior is already present
+            </summary>
+            <typeparam name="TBehavior">Type of the behavior to add.</typeparam>
+            <param name="behaviorKey">The behavior key that's used to find if a certain behavior is already added.</param>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.RegionBehaviorFactory.CreateFromKey(System.String)">
+            <summary>
+            Creates an instance of the behavior <see cref="T:System.Type"/> that is registered using the specified key.
+            </summary>
+            <param name="key">The key that is used to register a behavior type.</param>
+            <returns>A new instance of the behavior. </returns>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.RegionBehaviorFactory.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>
+            A <see cref="T:System.Collections.Generic.IEnumerator`1" /> that can be used to iterate through the collection.
+            </returns>
+            <filterpriority>1</filterpriority>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.RegionBehaviorFactory.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through a collection.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.IEnumerator" /> object that can be used to iterate through the collection.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.RegionBehaviorFactory.ContainsKey(System.String)">
+            <summary>
+            Determines whether a behavior with the specified key already exists.
+            </summary>
+            <param name="behaviorKey">The behavior key.</param>
+            <returns>
+            <see langword="true"/> if a behavior with the specified key is present; otherwise, <see langword="false"/>.
+            </returns>
+        </member>
+        <member name="T:Prism.Regions.Behaviors.RegionManagerRegistrationBehavior">
+            <summary>
+            Subscribes to a static event from the <see cref="T:Prism.Regions.RegionManager"/> in order to register the target <see cref="T:Prism.Regions.IRegion"/>
+            in a <see cref="T:Prism.Regions.IRegionManager"/> when one is available on the host control by walking up the tree and finding
+            a control whose <see cref="F:Prism.Regions.Xaml.RegionManager.RegionManagerProperty"/> property is not <see langword="null"/>.
+            </summary>
+        </member>
+        <member name="F:Prism.Regions.Behaviors.RegionManagerRegistrationBehavior.BehaviorKey">
+            <summary>
+            The key of this behavior.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.RegionManagerRegistrationBehavior.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:Prism.Regions.Behaviors.RegionManagerRegistrationBehavior"/>.
+            </summary>
+        </member>
+        <member name="P:Prism.Regions.Behaviors.RegionManagerRegistrationBehavior.RegionManagerAccessor">
+            <summary>
+            Provides an abstraction on top of the RegionManager static members.
+            </summary>
+        </member>
+        <member name="P:Prism.Regions.Behaviors.RegionManagerRegistrationBehavior.HostControl">
+            <summary>
+            Gets or sets the <see cref="T:Xamarin.Forms.VisualElement"/> that the <see cref="T:Prism.Regions.IRegion"/> is attached to.
+            </summary>
+            <value>A <see cref="T:Xamarin.Forms.VisualElement"/> that the <see cref="T:Prism.Regions.IRegion"/> is attached to.
+            This is usually a <see cref="T:Xamarin.Forms.View"/> that is part of the tree.</value>
+            <exception cref="T:System.InvalidOperationException">When this member is set after the <see cref="M:Prism.Regions.Behaviors.IRegionBehavior.Attach"/> method has being called.</exception>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.RegionManagerRegistrationBehavior.OnAttach">
+            <summary>
+            When the <see cref="T:Prism.Regions.IRegion"/> has a name assigned, the behavior will start monitoring the ancestor controls in the element tree
+            to look for an <see cref="T:Prism.Regions.IRegionManager"/> where to register the region in.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.RegionManagerRegistrationBehavior.OnUpdatingRegions(System.Object,System.EventArgs)">
+            <summary>
+            This event handler gets called when a RegionManager is requering the instances of a region to be registered if they are not already.
+            <remarks>Although this is a public method to support Weak Delegates in Silverlight, it should not be called by the user.</remarks>
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The arguments.</param>
+        </member>
+        <member name="T:Prism.Regions.Behaviors.RegionMemberLifetimeBehavior">
+            <summary>
+            The RegionMemberLifetimeBehavior determines if items should be removed from the <see cref="T:Prism.Regions.IRegion"/>
+            when they are deactivated.
+            </summary>
+            <remarks>
+            The <see cref="T:Prism.Regions.Behaviors.RegionMemberLifetimeBehavior"/> monitors the <see cref="P:Prism.Regions.IRegion.ActiveViews"/>
+            collection to discover items that transition into a deactivated state.  
+            <p/>
+            The behavior checks the removed items for either the <see cref="T:Prism.Regions.IRegionMemberLifetime"/>
+            or the <see cref="T:Prism.Regions.RegionMemberLifetimeAttribute"/> (in that order) to determine if it should be kept 
+            alive on removal.
+            <p/>
+            If the item in the collection is a <see cref="T:Xamarin.Forms.VisualElement"/>, it will
+            also check it's DataContext for <see cref="T:Prism.Regions.IRegionMemberLifetime"/> or the <see cref="T:Prism.Regions.RegionMemberLifetimeAttribute"/>.
+            <p/>
+            The order of checks are:
+            <list type="number">
+                <item>Region Item's IRegionMemberLifetime.KeepAlive value.</item>
+                <item>Region Item's DataContext's IRegionMemberLifetime.KeepAlive value.</item>
+                <item>Region Item's RegionMemberLifetimeAttribute.KeepAlive value.</item>
+                <item>Region Item's DataContext's RegionMemberLifetimeAttribute.KeepAlive value.</item>
+            </list>
+            </remarks>
+        </member>
+        <member name="F:Prism.Regions.Behaviors.RegionMemberLifetimeBehavior.BehaviorKey">
+            <summary>
+            The key for this behavior.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.RegionMemberLifetimeBehavior.OnAttach">
+            <summary>
+            Override this method to perform the logic after the behavior has been attached.
+            </summary>
+        </member>
+        <member name="T:Prism.Regions.Behaviors.SyncRegionContextWithHostBehavior">
+            <summary>
+            Behavior that synchronizes the <see cref="P:Prism.Regions.IRegion.Context"/> property of a <see cref="T:Prism.Regions.IRegion"/> with 
+            the control that hosts the Region. It does this by setting the <see cref="F:Prism.Regions.Xaml.RegionManager.RegionContextProperty"/> 
+            Dependency Property on the host control.
+            
+            This behavior allows the usage of two way databinding of the RegionContext from XAML. 
+            </summary>
+        </member>
+        <member name="F:Prism.Regions.Behaviors.SyncRegionContextWithHostBehavior.BehaviorKey">
+            <summary>
+            Name that identifies the SyncRegionContextWithHostBehavior behavior in a collection of RegionsBehaviors. 
+            </summary>
+        </member>
+        <member name="P:Prism.Regions.Behaviors.SyncRegionContextWithHostBehavior.HostControl">
+            <summary>
+            Gets or sets the <see cref="T:Xamarin.Forms.VisualElement"/> that the <see cref="T:Prism.Regions.IRegion"/> is attached to.
+            </summary>
+            <value>
+            A <see cref="T:Xamarin.Forms.VisualElement"/> that the <see cref="T:Prism.Regions.IRegion"/> is attached to.
+            This is usually a <see cref="T:Xamarin.Forms.VisualElement"/> that is part of the tree.
+            </value>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.SyncRegionContextWithHostBehavior.OnAttach">
+            <summary>
+            Override this method to perform the logic after the behavior has been attached.
+            </summary>
+        </member>
+        <member name="T:Prism.Regions.Behaviors.RegionCreationException">
+            <summary>
+            Represents errors that occured during region creation.
+            </summary>
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.RegionCreationException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prism.Regions.Behaviors.RegionCreationException"/>
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.RegionCreationException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prism.Regions.Behaviors.RegionCreationException"/> class with a specified error message.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.RegionCreationException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prism.Regions.Behaviors.RegionCreationException"/> class with a specified error message and a reference 
+            to the inner exception that is the cause of this exception. 
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="inner">The exception that is the cause of the current exception, or a null reference 
+            (Nothing in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="M:Prism.Regions.Behaviors.RegionCreationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prism.Regions.Behaviors.RegionCreationException"/> class with serialized data.
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
+        </member>
+        <member name="E:Prism.Regions.DefaultRegionManagerAccessor.UpdatingRegions">
+            <summary>
+            Notification used by attached behaviors to update the region managers appropriately if needed to.
+            </summary>
+            <remarks>This event uses weak references to the event handler to prevent this static event of keeping the
+            target element longer than expected.</remarks>
+        </member>
+        <member name="M:Prism.Regions.DefaultRegionManagerAccessor.GetRegionName(Xamarin.Forms.VisualElement)">
+            <summary>
+            Gets the value for the RegionName attached property.
+            </summary>
+            <param name="element">The object to adapt. This is typically a container (i.e a control).</param>
+            <returns>The name of the region that should be created when
+            the RegionManager is also set in this element.</returns>
+        </member>
+        <member name="M:Prism.Regions.DefaultRegionManagerAccessor.GetRegionManager(Xamarin.Forms.VisualElement)">
+            <summary>
+            Gets the value of the RegionName attached property.
+            </summary>
+            <param name="element">The target element.</param>
+            <returns>The <see cref="T:Prism.Regions.IRegionManager"/> attached to the <paramref name="element"/> element.</returns>
+        </member>
+        <member name="T:Prism.Regions.IRegion">
+            <summary>
+            Defines a model that can be used to compose views.
+            </summary>
+        </member>
+        <member name="P:Prism.Regions.IRegion.Views">
+            <summary>
+            Gets a readonly view of the collection of views in the region.
+            </summary>
+            <value>An <see cref="T:Prism.Regions.IViewsCollection"/> of all the added views.</value>
+        </member>
+        <member name="P:Prism.Regions.IRegion.ActiveViews">
+            <summary>
+            Gets a readonly view of the collection of all the active views in the region.
+            </summary>
+            <value>An <see cref="T:Prism.Regions.IViewsCollection"/> of all the active views.</value>
+        </member>
+        <member name="P:Prism.Regions.IRegion.Context">
+            <summary>
+            Gets or sets a context for the region. This value can be used by the user to share context with the views.
+            </summary>
+            <value>The context value to be shared.</value>
+        </member>
+        <member name="P:Prism.Regions.IRegion.Name">
+            <summary>
+            Gets the name of the region that uniquely identifies the region within a <see cref="T:Prism.Regions.IRegionManager"/>.
+            </summary>
+            <value>The name of the region.</value>
+        </member>
+        <member name="P:Prism.Regions.IRegion.SortComparison">
+            <summary>
+            Gets or sets the comparison used to sort the views.
+            </summary>
+            <value>The comparison to use.</value>
+        </member>
+        <member name="M:Prism.Regions.IRegion.Add(Xamarin.Forms.VisualElement)">
+            <overloads>Adds a new view to the region.</overloads>
+             <summary>
+             Adds a new view to the region.
+             </summary>
+             <param name="view">The view to add.</param>
+             <returns>The <see cref="T:Prism.Regions.IRegionManager"/> that is set on the view if it is a <see cref="T:Xamarin.Forms.VisualElement"/>. It will be the current region manager when using this overload.</returns>
+        </member>
+        <member name="M:Prism.Regions.IRegion.Add(Xamarin.Forms.VisualElement,System.String)">
+            <summary>
+            Adds a new view to the region.
+            </summary>
+            <param name="view">The view to add.</param>
+            <param name="viewName">The name of the view. This can be used to retrieve it later by calling <see cref="M:Prism.Regions.IRegion.GetView(System.String)"/>.</param>
+            <returns>The <see cref="T:Prism.Regions.IRegionManager"/> that is set on the view if it is a <see cref="T:Xamarin.Forms.VisualElement"/>. It will be the current region manager when using this overload.</returns>
+        </member>
+        <member name="M:Prism.Regions.IRegion.Add(Xamarin.Forms.VisualElement,System.String,System.Boolean)">
+            <summary>
+            Adds a new view to the region.
+            </summary>
+            <param name="view">The view to add.</param>
+            <param name="viewName">The name of the view. This can be used to retrieve it later by calling <see cref="M:Prism.Regions.IRegion.GetView(System.String)"/>.</param>
+            <param name="createRegionManagerScope">When <see langword="true"/>, the added view will receive a new instance of <see cref="T:Prism.Regions.IRegionManager"/>, otherwise it will use the current region manager for this region.</param>
+            <returns>The <see cref="T:Prism.Regions.IRegionManager"/> that is set on the view if it is a <see cref="T:Xamarin.Forms.VisualElement"/>.</returns>
+        </member>
+        <member name="M:Prism.Regions.IRegion.Remove(Xamarin.Forms.VisualElement)">
+            <summary>
+            Removes the specified view from the region.
+            </summary>
+            <param name="view">The view to remove.</param>
+        </member>
+        <member name="M:Prism.Regions.IRegion.RemoveAll">
+            <summary>
+            Removes all views from the region.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.IRegion.Activate(Xamarin.Forms.VisualElement)">
+            <summary>
+            Marks the specified view as active. 
+            </summary>
+            <param name="view">The view to activate.</param>
+        </member>
+        <member name="M:Prism.Regions.IRegion.Deactivate(Xamarin.Forms.VisualElement)">
+            <summary>
+            Marks the specified view as inactive. 
+            </summary>
+            <param name="view">The view to deactivate.</param>
+        </member>
+        <member name="M:Prism.Regions.IRegion.GetView(System.String)">
+            <summary>
+            Returns the view instance that was added to the region using a specific name.
+            </summary>
+            <param name="viewName">The name used when adding the view to the region.</param>
+            <returns>Returns the named view or <see langword="null"/> if the view with <paramref name="viewName"/> does not exist in the current region.</returns>
+        </member>
+        <member name="P:Prism.Regions.IRegion.RegionManager">
+            <summary>
+            Gets or sets the <see cref="T:Prism.Regions.IRegionManager"/> that will be passed to the views when adding them to the region, unless the view is added by specifying createRegionManagerScope as <see langword="true" />.
+            </summary>
+            <value>The <see cref="T:Prism.Regions.IRegionManager"/> where this <see cref="T:Prism.Regions.IRegion"/> is registered.</value>
+            <remarks>This is usually used by implementations of <see cref="T:Prism.Regions.IRegionManager"/> and should not be
+            used by the developer explicitly.</remarks>
+        </member>
+        <member name="P:Prism.Regions.IRegion.Behaviors">
+            <summary>
+            Gets the collection of <see cref="T:Prism.Regions.Behaviors.IRegionBehavior"/>s that can extend the behavior of regions. 
+            </summary>
+        </member>
+        <member name="P:Prism.Regions.IRegion.NavigationService">
+            <summary>
+            Gets or sets the navigation service.
+            </summary>
+            <value>The navigation service.</value>
+        </member>
+        <member name="T:Prism.Regions.IRegionCollection">
+            <summary>
+            Defines a collection of <see cref="T:Prism.Regions.IRegion"/> uniquely identified by their Name.
+            </summary>
+        </member>
+        <member name="P:Prism.Regions.IRegionCollection.Item(System.String)">
+            <summary>
+            Gets the IRegion with the name received as index.
+            </summary>
+            <param name="regionName">Name of the region to be retrieved.</param>
+            <returns>The <see cref="T:Prism.Regions.IRegion"/> identified with the requested name.</returns>
+        </member>
+        <member name="M:Prism.Regions.IRegionCollection.Add(Prism.Regions.IRegion)">
+            <summary>
+            Adds a <see cref="T:Prism.Regions.IRegion"/> to the collection.
+            </summary>
+            <param name="region">Region to be added to the collection.</param>
+        </member>
+        <member name="M:Prism.Regions.IRegionCollection.Remove(System.String)">
+            <summary>
+            Removes a <see cref="T:Prism.Regions.IRegion"/> from the collection.
+            </summary>
+            <param name="regionName">Name of the region to be removed.</param>
+            <returns><see langword="true"/> if the region was removed from the collection, otherwise <see langword="false"/>.</returns>
+        </member>
+        <member name="M:Prism.Regions.IRegionCollection.ContainsRegionWithName(System.String)">
+            <summary>
+            Checks if the collection contains a <see cref="T:Prism.Regions.IRegion"/> with the name received as parameter.
+            </summary>
+            <param name="regionName">The name of the region to look for.</param>
+            <returns><see langword="true"/> if the region is contained in the collection, otherwise <see langword="false"/>.</returns>
+        </member>
+        <member name="M:Prism.Regions.IRegionCollection.Add(System.String,Prism.Regions.IRegion)">
+            <summary>
+            Adds a region to the <see cref="T:Prism.Regions.RegionManager"/> with the name received as argument.
+            </summary>
+            <param name="regionName">The name to be given to the region.</param>
+            <param name="region">The region to be added to the <see cref="T:Prism.Regions.RegionManager"/>.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="region"/> is <see langword="null"/>.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if <paramref name="regionName"/> and <paramref name="region"/>'s name do not match and the <paramref name="region"/> <see cref="P:Prism.Regions.IRegion.Name"/> is not <see langword="null"/>.</exception>
+        </member>
+        <member name="T:Prism.Regions.IRegionManager">
+            <summary>
+            Defines an interface to manage a set of <see cref="T:Prism.Regions.IRegion">regions</see> and to attach regions to objects (typically controls).
+            </summary>
+        </member>
+        <member name="P:Prism.Regions.IRegionManager.Regions">
+            <summary>
+            Gets a collection of <see cref="T:Prism.Regions.IRegion"/> that identify each region by name. You can use this collection to add or remove regions to the current region manager.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.IRegionManager.CreateRegionManager">
+            <summary>
+            Creates a new region manager.
+            </summary>
+            <returns>A new region manager that can be used as a different scope from the current region manager.</returns>
+        </member>
+        <member name="M:Prism.Regions.IRegionManager.AddToRegion(System.String,System.String)">
+            <summary>
+            Add a view to the Views collection of a Region. Note that the region must already exist in this <see cref="T:Prism.Regions.IRegionManager"/>. 
+            </summary>
+            <param name="regionName">The name of the region to add a view to</param>
+            <param name="targetName">The view to add to the views collection</param>
+            <returns>The RegionManager, to easily add several views. </returns>
+        </member>
+        <member name="M:Prism.Regions.IRegionManager.RegisterViewWithRegion(System.String,System.String)">
+            <summary>
+            Associate a view with a region, by registering a type. When the region get's displayed
+            this type will be resolved using the ServiceLocator into a concrete instance. The instance
+            will be added to the Views collection of the region
+            </summary>
+            <param name="regionName">The name of the region to associate the view with.</param>
+            <param name="targetName">The type of the view to register with the </param>
+            <returns>The <see cref="T:Prism.Regions.IRegionManager"/>, for adding several views easily</returns>
+        </member>
+        <member name="M:Prism.Regions.IRegionManager.RegisterViewWithRegion(System.String,System.Type)">
+            <summary>
+            Associate a view with a region, by registering a type. When the region get's displayed
+            this type will be resolved using the ServiceLocator into a concrete instance. The instance
+            will be added to the Views collection of the region
+            </summary>
+            <param name="regionName">The name of the region to associate the view with.</param>
+            <param name="viewType">The type of the view to register with the  <see cref="T:Prism.Regions.IRegion"/>.</param>
+            <returns>The <see cref="T:Prism.Regions.IRegionManager"/>, for adding several views easily</returns>
+        </member>
+        <member name="M:Prism.Regions.IRegionManager.RequestNavigate(System.String,System.Uri,System.Action{Prism.Regions.Navigation.IRegionNavigationResult})">
+            <summary>
+            Initiates navigation to the target specified by the <see cref="T:System.Uri"/>.
+            </summary>
+            <param name="regionName">The name of the Region to navigate to.</param>
+            <param name="target">The navigation target</param>
+            <param name="navigationCallback">The callback executed when the navigation request is completed.</param>
+            <remarks>
+            Convenience overloads for this method can be found as extension methods on the 
+            <see cref="T:Prism.Regions.Navigation.NavigationAsyncExtensions"/> class.
+            </remarks>
+        </member>
+        <member name="M:Prism.Regions.IRegionManager.RequestNavigate(System.String,System.Uri,System.Action{Prism.Regions.Navigation.IRegionNavigationResult},Prism.Navigation.INavigationParameters)">
+            <summary>
+            Initiates navigation to the target specified by the <see cref="T:System.Uri"/>.
+            </summary>
+            <param name="regionName">The name of the Region to navigate to.</param>
+            <param name="target">The navigation target</param>
+            <param name="navigationCallback">The callback executed when the navigation request is completed.</param>
+            <param name="navigationParameters">The navigation parameters specific to the navigation request.</param>
+            <remarks>
+            Convenience overloads for this method can be found as extension methods on the 
+            <see cref="T:Prism.Regions.Navigation.NavigationAsyncExtensions"/> class.
+            </remarks>
+        </member>
+        <member name="T:Prism.Regions.IRegionManagerAccessor">
+            <summary>
+            Provides an abstraction on top of the RegionManager static members.
+            </summary>
+        </member>
+        <member name="E:Prism.Regions.IRegionManagerAccessor.UpdatingRegions">
+            <summary>
+            Notification used by attached behaviors to update the region managers appropriately if needed to.
+            </summary>
+            <remarks>This event uses weak references to the event handler to prevent this static event of keeping the
+            target element longer than expected.</remarks>
+        </member>
+        <member name="M:Prism.Regions.IRegionManagerAccessor.GetRegionName(Xamarin.Forms.VisualElement)">
+            <summary>
+            Gets the value for the RegionName attached property.
+            </summary>
+            <param name="element">The object to adapt. This is typically a container (i.e a control).</param>
+            <returns>The name of the region that should be created when 
+            the RegionManager is also set in this element.</returns>
+        </member>
+        <member name="M:Prism.Regions.IRegionManagerAccessor.GetRegionManager(Xamarin.Forms.VisualElement)">
+            <summary>
+            Gets the value of the RegionName attached property.
+            </summary>
+            <param name="element">The target element.</param>
+            <returns>The <see cref="T:Prism.Regions.IRegionManager"/> attached to the <paramref name="element"/> element.</returns>
+        </member>
+        <member name="T:Prism.Regions.IRegionManagerExtensions">
+            <summary>
+            NavigationExtensions for the <see cref="T:Prism.Regions.IRegionManager" />
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.IRegionManagerExtensions.RequestNavigate(Prism.Regions.IRegionManager,System.String,System.String)">
+            <summary>
+            Initiates navigation to the target specified by the <paramref name="target"/>.
+            </summary>
+            <param name="regionManager">The navigation object.</param>
+            <param name="regionName">The name of the Region to navigate to.</param>
+            <param name="target">The navigation target</param>
+        </member>
+        <member name="M:Prism.Regions.IRegionManagerExtensions.RequestNavigate(Prism.Regions.IRegionManager,System.String,System.String,System.Action{Prism.Regions.Navigation.IRegionNavigationResult})">
+            <summary>
+            Initiates navigation to the target specified by the <paramref name="target"/>.
+            </summary>
+            <param name="regionManager">The navigation object.</param>
+            <param name="regionName">The name of the Region to navigate to.</param>
+            <param name="target">The navigation target</param>
+            <param name="navigationCallback">The callback executed when the navigation request is completed.</param>
+        </member>
+        <member name="M:Prism.Regions.IRegionManagerExtensions.RequestNavigate(Prism.Regions.IRegionManager,System.String,System.Uri)">
+            <summary>
+            Initiates navigation to the target specified by the <see cref="T:System.Uri"/>.
+            </summary>
+            <param name="regionManager">The navigation object.</param>
+            <param name="regionName">The name of the Region to navigate to.</param>
+            <param name="target">The navigation target</param>
+        </member>
+        <member name="M:Prism.Regions.IRegionManagerExtensions.RequestNavigate(Prism.Regions.IRegionManager,System.String,System.String,System.Action{Prism.Regions.Navigation.IRegionNavigationResult},Prism.Navigation.INavigationParameters)">
+            <summary>
+            Initiates navigation to the target specified by the <paramref name="target"/>.
+            </summary>
+            <param name="regionManager">The navigation object.</param>
+            <param name="regionName">The name of the Region to navigate to.</param>
+            <param name="target">The navigation target</param>
+            <param name="navigationCallback">The callback executed when the navigation request is completed.</param>
+            <param name="regionParameters">An instance of NavigationParameters, which holds a collection of object parameters.</param>
+        </member>
+        <member name="M:Prism.Regions.IRegionManagerExtensions.RequestNavigate(Prism.Regions.IRegionManager,System.String,System.Uri,Prism.Navigation.INavigationParameters)">
+            <summary>
+            Initiates navigation to the target specified by the <paramref name="target"/>.
+            </summary>
+            <param name="regionManager">The RegionManager object.</param>
+            <param name="regionName">The name of the Region to navigate to.</param>
+            <param name="target">A Uri that represents the target where the region will navigate.</param>
+            <param name="regionParameters">An instance of NavigationParameters, which holds a collection of object parameters.</param>
+        </member>
+        <member name="M:Prism.Regions.IRegionManagerExtensions.RequestNavigate(Prism.Regions.IRegionManager,System.String,System.String,Prism.Navigation.INavigationParameters)">
+            <summary>
+            Initiates navigation to the target specified by the <paramref name="target"/>.
+            </summary>
+            <param name="regionManager">The RegionManager object.</param>
+            <param name="regionName">The name of the Region to navigate to.</param>
+            <param name="target">A string that represents the target where the region will navigate.</param>
+            <param name="regionParameters">An instance of NavigationParameters, which holds a collection of object parameters.</param>
+        </member>
+        <member name="M:Prism.Regions.IRegionManagerExtensions.RegisterViewWithRegion``1(Prism.Regions.IRegionManager,System.String)">
+            <summary>
+            Associate a view with a region, by registering a type. When the region get's displayed
+            this type will be resolved using the ServiceLocator into a concrete instance. The instance
+            will be added to the Views collection of the region
+            </summary>
+            <typeparam name="T">The type of the view to register with the  <see cref="T:Prism.Regions.IRegion"/>.</typeparam>
+            <param name="regionManager">The current <see cref="T:Prism.Regions.IRegionManager"/>.</param>
+            <param name="regionName">The name of the region to associate the view with.</param>
+            <returns>The <see cref="T:Prism.Regions.IRegionManager"/>, for adding several views easily</returns>
+        </member>
+        <member name="T:Prism.Regions.ItemMetadata">
+            <summary>
+            Defines a class that wraps an item and adds metadata for it.
+            </summary>
+        </member>
+        <member name="F:Prism.Regions.ItemMetadata.NameProperty">
+            <summary>
+            The name of the wrapped item.
+            </summary>
+        </member>
+        <member name="F:Prism.Regions.ItemMetadata.IsActiveProperty">
+            <summary>
+            Value indicating whether the wrapped item is considered active.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.ItemMetadata.#ctor(Xamarin.Forms.VisualElement)">
+            <summary>
+            Initializes a new instance of <see cref="T:Prism.Regions.ItemMetadata"/>.
+            </summary>
+            <param name="item">The item to wrap.</param>
+        </member>
+        <member name="P:Prism.Regions.ItemMetadata.Item">
+            <summary>
+            Gets the wrapped item.
+            </summary>
+            <value>The wrapped item.</value>
+        </member>
+        <member name="P:Prism.Regions.ItemMetadata.Name">
+            <summary>
+            Gets or sets a name for the wrapped item.
+            </summary>
+            <value>The name of the wrapped item.</value>
+        </member>
+        <member name="P:Prism.Regions.ItemMetadata.IsActive">
+            <summary>
+            Gets or sets a value indicating whether the wrapped item is considered active.
+            </summary>
+            <value><see langword="true" /> if the item should be considered active; otherwise <see langword="false" />.</value>
+        </member>
+        <member name="E:Prism.Regions.ItemMetadata.MetadataChanged">
+            <summary>
+            Occurs when metadata on the item changes.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.ItemMetadata.InvokeMetadataChanged">
+            <summary>
+            Explicitly invokes <see cref="E:Prism.Regions.ItemMetadata.MetadataChanged"/> to notify listeners.
+            </summary>
+        </member>
+        <member name="T:Prism.Regions.Navigation.IConfirmRegionNavigationRequest">
+            <summary>
+            Provides a way for objects involved in navigation to determine if a navigation request should continue.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Navigation.IConfirmRegionNavigationRequest.ConfirmNavigationRequest(Prism.Regions.Navigation.INavigationContext,System.Action{System.Boolean})">
+            <summary>
+            Determines whether this instance accepts being navigated away from.
+            </summary>
+            <param name="navigationContext">The navigation context.</param>
+            <param name="continuationCallback">The callback to indicate when navigation can proceed.</param>
+            <remarks>
+            Implementors of this method do not need to invoke the callback before this method is completed,
+            but they must ensure the callback is eventually invoked.
+            </remarks>
+        </member>
+        <member name="T:Prism.Regions.Navigation.IJournalAware">
+            <summary>
+            Provides a way for objects involved in navigation to opt-out of being added to the IRegionNavigationJournal backstack.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Navigation.IJournalAware.PersistInHistory">
+            <summary>
+            Determines if the current object is going to be added to the navigation journal's backstack.
+            </summary>
+            <returns>True, add to backstack. False, remove from backstack.</returns>
+        </member>
+        <member name="T:Prism.Regions.Navigation.INavigateAsync">
+            <summary>
+            Provides methods to perform navigation.
+            </summary>
+            <remarks>
+            Convenience overloads for the methods in this interface can be found as extension methods on the 
+            <see cref="T:Prism.Regions.Navigation.NavigationAsyncExtensions"/> class.
+            </remarks>
+        </member>
+        <member name="M:Prism.Regions.Navigation.INavigateAsync.RequestNavigate(System.Uri,System.Action{Prism.Regions.Navigation.IRegionNavigationResult})">
+            <summary>
+            Initiates navigation to the target specified by the <see cref="T:System.Uri"/>.
+            </summary>
+            <param name="target">The navigation target</param>
+            <param name="navigationCallback">The callback executed when the navigation request is completed.</param>
+            <remarks>
+            Convenience overloads for this method can be found as extension methods on the 
+            <see cref="T:Prism.Regions.Navigation.NavigationAsyncExtensions"/> class.
+            </remarks>
+        </member>
+        <member name="M:Prism.Regions.Navigation.INavigateAsync.RequestNavigate(System.Uri,System.Action{Prism.Regions.Navigation.IRegionNavigationResult},Prism.Navigation.INavigationParameters)">
+            <summary>
+            Initiates navigation to the target specified by the <see cref="T:System.Uri"/>.
+            </summary>
+            <param name="target">The navigation target</param>
+            <param name="navigationCallback">The callback executed when the navigation request is completed.</param>
+            <param name="navigationParameters">The navigation parameters specific to the navigation request.</param>
+            <remarks>
+            Convenience overloads for this method can be found as extension methods on the 
+            <see cref="T:Prism.Regions.Navigation.NavigationAsyncExtensions"/> class.
+            </remarks>
+        </member>
+        <member name="T:Prism.Regions.Navigation.INavigationContext">
+            <summary>
+            Encapsulates information about a navigation request.
+            </summary>
+        </member>
+        <member name="P:Prism.Regions.Navigation.INavigationContext.NavigationService">
+            <summary>
+            Gets the region navigation service.
+            </summary>
+            <value>The navigation service.</value>
+        </member>
+        <member name="P:Prism.Regions.Navigation.INavigationContext.Parameters">
+            <summary>
+            Gets the <see cref="T:Prism.Navigation.INavigationParameters"/> extracted from the URI and the object parameters passed in navigation.
+            </summary>
+            <value>The URI query.</value>
+        </member>
+        <member name="P:Prism.Regions.Navigation.INavigationContext.Uri">
+            <summary>
+            Gets the navigation URI.
+            </summary>
+            <value>The navigation URI.</value>
+        </member>
+        <member name="T:Prism.Regions.Navigation.IRegionAware">
+            <summary>
+            Provides a way for objects involved in navigation to be notified of navigation activities.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Navigation.IRegionAware.OnNavigatedTo(Prism.Regions.Navigation.INavigationContext)">
+            <summary>
+            Called when the implementer has been navigated to.
+            </summary>
+            <param name="navigationContext">The navigation context.</param>
+        </member>
+        <member name="M:Prism.Regions.Navigation.IRegionAware.IsNavigationTarget(Prism.Regions.Navigation.INavigationContext)">
+            <summary>
+            Called to determine if this instance can handle the navigation request.
+            </summary>
+            <param name="navigationContext">The navigation context.</param>
+            <returns>
+            <see langword="true"/> if this instance accepts the navigation request; otherwise, <see langword="false"/>.
+            </returns>
+        </member>
+        <member name="M:Prism.Regions.Navigation.IRegionAware.OnNavigatedFrom(Prism.Regions.Navigation.INavigationContext)">
+            <summary>
+            Called when the implementer is being navigated away from.
+            </summary>
+            <param name="navigationContext">The navigation context.</param>
+        </member>
+        <member name="T:Prism.Regions.Navigation.IRegionNavigationContentLoader">
+            <summary>
+            Identifies the view in a region that is the target of a navigation request.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Navigation.IRegionNavigationContentLoader.LoadContent(Prism.Regions.IRegion,Prism.Regions.Navigation.INavigationContext)">
+            <summary>
+            Gets the content to which the navigation request represented by <paramref name="navigationContext"/> applies.
+            </summary>
+            <remarks>
+            If none of the items in the region match the target of the navigation request, a new item
+            will be created and added to the region.
+            </remarks>
+            <param name="region">The region.</param>
+            <param name="navigationContext">The context representing the navigation request.</param>
+            <returns>The item to be the target of the navigation request.</returns>
+            <exception cref="T:System.InvalidOperationException">when a new item cannot be created for the navigation request.</exception>
+        </member>
+        <member name="T:Prism.Regions.Navigation.IRegionNavigationJournal">
+            <summary>
+            Provides journaling of current, back, and forward navigation within regions.
+            </summary>
+        </member>
+        <member name="P:Prism.Regions.Navigation.IRegionNavigationJournal.CanGoBack">
+            <summary>
+            Gets a value that indicates whether there is at least one entry in the back navigation history.
+            </summary>
+            <value>
+            <c>true</c> if the journal can go back; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Prism.Regions.Navigation.IRegionNavigationJournal.CanGoForward">
+            <summary>
+            Gets a value that indicates whether there is at least one entry in the forward navigation history.
+            </summary>
+            <value>
+            <c>true</c> if this instance can go forward; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Prism.Regions.Navigation.IRegionNavigationJournal.CurrentEntry">
+            <summary>
+            Gets the current navigation entry of the content that is currently displayed.
+            </summary>
+            <value>The current entry.</value>
+        </member>
+        <member name="P:Prism.Regions.Navigation.IRegionNavigationJournal.NavigationTarget">
+            <summary>
+            Gets or sets the target that implements INavigateAsync.
+            </summary>
+            <value>The INavigate implementation.</value>
+            <remarks>
+            This is set by the owner of this journal.
+            </remarks>
+        </member>
+        <member name="M:Prism.Regions.Navigation.IRegionNavigationJournal.GoBack">
+            <summary>
+            Navigates to the most recent entry in the back navigation history, or does nothing if no entry exists in back navigation.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Navigation.IRegionNavigationJournal.GoForward">
+            <summary>
+            Navigates to the most recent entry in the forward navigation history, or does nothing if no entry exists in forward navigation.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Navigation.IRegionNavigationJournal.RecordNavigation(Prism.Regions.Navigation.IRegionNavigationJournalEntry,System.Boolean)">
+            <summary>
+            Records the navigation to the entry..
+            </summary>
+            <param name="entry">The entry to record.</param>
+            <param name="persistInHistory"><c>true</c> if you it should be persisted in history</param>
+        </member>
+        <member name="M:Prism.Regions.Navigation.IRegionNavigationJournal.Clear">
+            <summary>
+            Clears the journal of current, back, and forward navigation histories.
+            </summary>
+        </member>
+        <member name="T:Prism.Regions.Navigation.IRegionNavigationJournalEntry">
+            <summary>
+            An entry in an IRegionNavigationJournal representing the URI navigated to.
+            </summary>
+        </member>
+        <member name="P:Prism.Regions.Navigation.IRegionNavigationJournalEntry.Uri">
+            <summary>
+            Gets or sets the URI.
+            </summary>
+            <value>The URI.</value>
+        </member>
+        <member name="P:Prism.Regions.Navigation.IRegionNavigationJournalEntry.Parameters">
+            <summary>
+            Gets or sets the NavigationParameters instance.
+            </summary>
+        </member>
+        <member name="T:Prism.Regions.Navigation.IRegionNavigationResult">
+            <summary>
+            Represents the result of navigating to a URI.
+            </summary>
+        </member>
+        <member name="P:Prism.Regions.Navigation.IRegionNavigationResult.Context">
+            <summary>
+            Gets the navigation context.
+            </summary>
+            <value>The navigation context.</value>
+        </member>
+        <member name="P:Prism.Regions.Navigation.IRegionNavigationResult.Error">
+            <summary>
+            Gets an exception that occurred while navigating.
+            </summary>
+            <value>The exception.</value>
+        </member>
+        <member name="P:Prism.Regions.Navigation.IRegionNavigationResult.Result">
+            <summary>
+            Gets the result.
+            </summary>
+            <value>The result.</value>
+        </member>
+        <member name="T:Prism.Regions.Navigation.IRegionNavigationService">
+            <summary>
+            Provides navigation for regions.
+            </summary>
+        </member>
+        <member name="P:Prism.Regions.Navigation.IRegionNavigationService.Region">
+            <summary>
+            Gets or sets the region owning this service.
+            </summary>
+            <value>A Region.</value>
+        </member>
+        <member name="P:Prism.Regions.Navigation.IRegionNavigationService.Journal">
+            <summary>
+            Gets the journal.
+            </summary>
+            <value>The journal.</value>
+        </member>
+        <member name="E:Prism.Regions.Navigation.IRegionNavigationService.Navigating">
+            <summary>
+            Raised when the region is about to be navigated to content.
+            </summary>
+        </member>
+        <member name="E:Prism.Regions.Navigation.IRegionNavigationService.Navigated">
+            <summary>
+            Raised when the region is navigated to content.
+            </summary>
+        </member>
+        <member name="E:Prism.Regions.Navigation.IRegionNavigationService.NavigationFailed">
+            <summary>
+            Raised when a navigation request fails.
+            </summary>
+        </member>
+        <member name="T:Prism.Regions.Navigation.NavigationAsyncExtensions">
+            <summary>
+            Provides additional methods to the <see cref="T:Prism.Regions.Navigation.INavigateAsync"/> interface.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Navigation.NavigationAsyncExtensions.RequestNavigate(Prism.Regions.Navigation.INavigateAsync,System.String)">
+            <summary>
+            Initiates navigation to the target specified by the <paramref name="target"/>.
+            </summary>
+            <param name="navigation">The navigation object.</param>
+            <param name="target">The navigation target</param>
+        </member>
+        <member name="M:Prism.Regions.Navigation.NavigationAsyncExtensions.RequestNavigate(Prism.Regions.Navigation.INavigateAsync,System.String,System.Action{Prism.Regions.Navigation.IRegionNavigationResult})">
+            <summary>
+            Initiates navigation to the target specified by the <paramref name="target"/>.
+            </summary>
+            <param name="navigation">The navigation object.</param>
+            <param name="target">The navigation target</param>
+            <param name="navigationCallback">The callback executed when the navigation request is completed.</param>
+        </member>
+        <member name="M:Prism.Regions.Navigation.NavigationAsyncExtensions.RequestNavigate(Prism.Regions.Navigation.INavigateAsync,System.Uri)">
+            <summary>
+            Initiates navigation to the target specified by the <see cref="T:System.Uri"/>.
+            </summary>
+            <param name="navigation">The navigation object.</param>
+            <param name="target">The navigation target</param>
+        </member>
+        <member name="M:Prism.Regions.Navigation.NavigationAsyncExtensions.RequestNavigate(Prism.Regions.Navigation.INavigateAsync,System.String,System.Action{Prism.Regions.Navigation.IRegionNavigationResult},Prism.Navigation.INavigationParameters)">
+            <summary>
+            Initiates navigation to the target specified by the <paramref name="target"/>.
+            </summary>
+            <param name="navigation">The navigation object.</param>
+            <param name="target">The navigation target</param>
+            <param name="navigationCallback">The callback executed when the navigation request is completed.</param>
+            <param name="regionParameters">An instance of NavigationParameters, which holds a collection of object parameters.</param>
+        </member>
+        <member name="M:Prism.Regions.Navigation.NavigationAsyncExtensions.RequestNavigate(Prism.Regions.Navigation.INavigateAsync,System.Uri,Prism.Navigation.INavigationParameters)">
+            <summary>
+            Initiates navigation to the target specified by the <paramref name="target"/>.
+            </summary>
+            <param name="navigation">The navigation object.</param>
+            <param name="target">A Uri that represents the target where the region will navigate.</param>
+            <param name="regionParameters">An instance of NavigationParameters, which holds a collection of object parameters.</param>
+        </member>
+        <member name="M:Prism.Regions.Navigation.NavigationAsyncExtensions.RequestNavigate(Prism.Regions.Navigation.INavigateAsync,System.String,Prism.Navigation.INavigationParameters)">
+            <summary>
+            Initiates navigation to the target specified by the <paramref name="target"/>.
+            </summary>
+            <param name="navigation">The navigation object.</param>
+            <param name="target">A string that represents the target where the region will navigate.</param>
+            <param name="regionParameters">An instance of NavigationParameters, which holds a collection of object parameters.</param>
+        </member>
+        <member name="T:Prism.Regions.Navigation.NavigationContext">
+            <summary>
+            Encapsulates information about a navigation request.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Navigation.NavigationContext.#ctor(Prism.Regions.Navigation.IRegionNavigationService,System.Uri)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prism.Regions.Navigation.NavigationContext"/> class for a region name and a 
+            <see cref="P:Prism.Regions.Navigation.NavigationContext.Uri"/>.
+            </summary>
+            <param name="navigationService">The navigation service.</param>
+            <param name="uri">The Uri.</param>
+        </member>
+        <member name="M:Prism.Regions.Navigation.NavigationContext.#ctor(Prism.Regions.Navigation.IRegionNavigationService,System.Uri,Prism.Navigation.INavigationParameters)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prism.Regions.Navigation.NavigationContext"/> class for a region name and a 
+            <see cref="P:Prism.Regions.Navigation.NavigationContext.Uri"/>.
+            </summary>
+            <param name="navigationService">The navigation service.</param>
+            <param name="regionParameters">The navigation parameters.</param>
+            <param name="uri">The Uri.</param>
+        </member>
+        <member name="P:Prism.Regions.Navigation.NavigationContext.NavigationService">
+            <summary>
+            Gets the region navigation service.
+            </summary>
+            <value>The navigation service.</value>
+        </member>
+        <member name="P:Prism.Regions.Navigation.NavigationContext.Uri">
+            <summary>
+            Gets the navigation URI.
+            </summary>
+            <value>The navigation URI.</value>
+        </member>
+        <member name="P:Prism.Regions.Navigation.NavigationContext.Parameters">
+            <summary>
+            Gets the <see cref="T:Prism.Navigation.INavigationParameters"/> extracted from the URI and the object parameters passed in navigation.
+            </summary>
+            <value>The URI query.</value>
+        </member>
+        <member name="T:Prism.Regions.Navigation.RegionNavigationContentLoader">
+            <summary>
+            Implementation of <see cref="T:Prism.Regions.Navigation.IRegionNavigationContentLoader"/> that relies on a <see cref="T:Prism.Ioc.IContainerProvider"/>
+            to create new views when necessary.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Navigation.RegionNavigationContentLoader.#ctor(Prism.Ioc.IContainerExtension)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prism.Regions.Navigation.RegionNavigationContentLoader"/> class with a service locator.
+            </summary>
+            <param name="container">The <see cref="T:Prism.Ioc.IContainerExtension" />.</param>
+        </member>
+        <member name="M:Prism.Regions.Navigation.RegionNavigationContentLoader.LoadContent(Prism.Regions.IRegion,Prism.Regions.Navigation.INavigationContext)">
+            <summary>
+            Gets the view to which the navigation request represented by <paramref name="navigationContext"/> applies.
+            </summary>
+            <param name="region">The region.</param>
+            <param name="navigationContext">The context representing the navigation request.</param>
+            <returns>
+            The view to be the target of the navigation request.
+            </returns>
+            <remarks>
+            If none of the views in the region can be the target of the navigation request, a new view
+            is created and added to the region.
+            </remarks>
+            <exception cref="T:System.ArgumentException">when a new view cannot be created for the navigation request.</exception>
+        </member>
+        <member name="M:Prism.Regions.Navigation.RegionNavigationContentLoader.CreateNewRegionItem(System.String)">
+            <summary>
+            Provides a new item for the region based on the supplied candidate target contract name.
+            </summary>
+            <param name="candidateTargetContract">The target contract to build.</param>
+            <returns>An instance of an item to put into the <see cref="T:Prism.Regions.IRegion"/>.</returns>
+        </member>
+        <member name="M:Prism.Regions.Navigation.RegionNavigationContentLoader.GetContractFromNavigationContext(Prism.Regions.Navigation.INavigationContext)">
+            <summary>
+            Returns the candidate TargetContract based on the <see cref="T:Prism.Regions.Navigation.NavigationContext"/>.
+            </summary>
+            <param name="navigationContext">The navigation contract.</param>
+            <returns>The candidate contract to seek within the <see cref="T:Prism.Regions.IRegion"/> and to use, if not found, when resolving from the container.</returns>
+        </member>
+        <member name="M:Prism.Regions.Navigation.RegionNavigationContentLoader.GetCandidatesFromRegion(Prism.Regions.IRegion,System.String)">
+            <summary>
+            Returns the set of candidates that may satisfy this navigation request.
+            </summary>
+            <param name="region">The region containing items that may satisfy the navigation request.</param>
+            <param name="candidateNavigationContract">The candidate navigation target as determined by <see cref="M:Prism.Regions.Navigation.RegionNavigationContentLoader.GetContractFromNavigationContext(Prism.Regions.Navigation.INavigationContext)"/></param>
+            <returns>An enumerable of candidate objects from the <see cref="T:Prism.Regions.IRegion"/></returns>
+        </member>
+        <member name="T:Prism.Regions.Navigation.RegionNavigationEventArgs">
+            <summary>
+            EventArgs used with the Navigated event.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Navigation.RegionNavigationEventArgs.#ctor(Prism.Regions.Navigation.INavigationContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prism.Regions.Navigation.RegionNavigationEventArgs"/> class.
+            </summary>
+            <param name="navigationContext">The navigation context.</param>
+        </member>
+        <member name="P:Prism.Regions.Navigation.RegionNavigationEventArgs.NavigationContext">
+            <summary>
+            Gets the navigation context.
+            </summary>
+            <value>The navigation context.</value>
+        </member>
+        <member name="P:Prism.Regions.Navigation.RegionNavigationEventArgs.Uri">
+            <summary>
+            Gets the navigation URI
+            </summary>
+            <value>The URI.</value>
+            <remarks>
+            This is a convenience accessor around NavigationContext.Uri.
+            </remarks>
+        </member>
+        <member name="T:Prism.Regions.Navigation.RegionNavigationFailedEventArgs">
+            <summary>
+            EventArgs used with the NavigationFailed event.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Navigation.RegionNavigationFailedEventArgs.#ctor(Prism.Regions.Navigation.INavigationContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prism.Regions.Navigation.RegionNavigationEventArgs"/> class.
+            </summary>
+            <param name="navigationContext">The navigation context.</param>
+        </member>
+        <member name="M:Prism.Regions.Navigation.RegionNavigationFailedEventArgs.#ctor(Prism.Regions.Navigation.INavigationContext,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prism.Regions.Navigation.RegionNavigationFailedEventArgs"/> class.
+            </summary>
+            <param name="navigationContext">The navigation context.</param>
+            <param name="error">The error.</param>
+        </member>
+        <member name="P:Prism.Regions.Navigation.RegionNavigationFailedEventArgs.NavigationContext">
+            <summary>
+            Gets the navigation context.
+            </summary>
+            <value>The navigation context.</value>
+        </member>
+        <member name="P:Prism.Regions.Navigation.RegionNavigationFailedEventArgs.Error">
+            <summary>
+            Gets the error.
+            </summary>
+            <value>The <see cref="T:System.Exception"/>, or <see langword="null"/> if the failure was not caused by an exception.</value>
+        </member>
+        <member name="P:Prism.Regions.Navigation.RegionNavigationFailedEventArgs.Uri">
+            <summary>
+            Gets the navigation URI
+            </summary>
+            <value>The URI.</value>
+            <remarks>
+            This is a convenience accessor around NavigationContext.Uri.
+            </remarks>
+        </member>
+        <member name="T:Prism.Regions.Navigation.RegionNavigationJournal">
+            <summary>
+            Provides journaling of current, back, and forward navigation within regions.    
+            </summary>
+        </member>
+        <member name="P:Prism.Regions.Navigation.RegionNavigationJournal.NavigationTarget">
+            <summary>
+            Gets or sets the target that implements INavigate.
+            </summary>
+            <value>The INavigate implementation.</value>
+            <remarks>
+            This is set by the owner of this journal.
+            </remarks>
+        </member>
+        <member name="P:Prism.Regions.Navigation.RegionNavigationJournal.CurrentEntry">
+            <summary>
+            Gets the current navigation entry of the content that is currently displayed.
+            </summary>
+            <value>The current entry.</value>
+        </member>
+        <member name="P:Prism.Regions.Navigation.RegionNavigationJournal.CanGoBack">
+            <summary>
+            Gets a value that indicates whether there is at least one entry in the back navigation history.
+            </summary>
+            <value><c>true</c> if the journal can go back; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Prism.Regions.Navigation.RegionNavigationJournal.CanGoForward">
+            <summary>
+            Gets a value that indicates whether there is at least one entry in the forward navigation history.
+            </summary>
+            <value>
+            <c>true</c> if this instance can go forward; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:Prism.Regions.Navigation.RegionNavigationJournal.GoBack">
+            <summary>
+            Navigates to the most recent entry in the back navigation history, or does nothing if no entry exists in back navigation.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Navigation.RegionNavigationJournal.GoForward">
+            <summary>
+            Navigates to the most recent entry in the forward navigation history, or does nothing if no entry exists in forward navigation.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Navigation.RegionNavigationJournal.RecordNavigation(Prism.Regions.Navigation.IRegionNavigationJournalEntry,System.Boolean)">
+            <summary>
+            Records the navigation to the entry..
+            </summary>
+            <param name="entry">The entry to record.</param>
+            <param name="persistInHistory">Determine if the view is added to the back stack or excluded from the history.</param>
+        </member>
+        <member name="M:Prism.Regions.Navigation.RegionNavigationJournal.Clear">
+            <summary>
+            Clears the journal of current, back, and forward navigation histories.
+            </summary>
+        </member>
+        <member name="T:Prism.Regions.Navigation.RegionNavigationJournalEntry">
+            <summary>
+            An entry in an IRegionNavigationJournal representing the URI navigated to.
+            </summary>
+        </member>
+        <member name="P:Prism.Regions.Navigation.RegionNavigationJournalEntry.Uri">
+            <summary>
+            Gets or sets the URI.
+            </summary>
+            <value>The URI.</value>
+        </member>
+        <member name="P:Prism.Regions.Navigation.RegionNavigationJournalEntry.Parameters">
+            <summary>
+            Gets or sets the NavigationParameters instance.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Navigation.RegionNavigationJournalEntry.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
+        <member name="T:Prism.Regions.Navigation.RegionNavigationResult">
+            <summary>
+            Represents the result of navigating to a URI.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Navigation.RegionNavigationResult.#ctor(Prism.Regions.Navigation.INavigationContext,System.Nullable{System.Boolean})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prism.Regions.Navigation.RegionNavigationResult"/> class.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="result">The result.</param>
+        </member>
+        <member name="M:Prism.Regions.Navigation.RegionNavigationResult.#ctor(Prism.Regions.Navigation.INavigationContext,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prism.Regions.Navigation.RegionNavigationResult"/> class.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="error">The error.</param>
+        </member>
+        <member name="P:Prism.Regions.Navigation.RegionNavigationResult.Result">
+            <summary>
+            Gets the result.
+            </summary>
+            <value>The result.</value>
+        </member>
+        <member name="P:Prism.Regions.Navigation.RegionNavigationResult.Error">
+            <summary>
+            Gets an exception that occurred while navigating.
+            </summary>
+            <value>The exception.</value>
+        </member>
+        <member name="P:Prism.Regions.Navigation.RegionNavigationResult.Context">
+            <summary>
+            Gets the navigation context.
+            </summary>
+            <value>The navigation context.</value>
+        </member>
+        <member name="T:Prism.Regions.Navigation.RegionNavigationService">
+            <summary>
+            Provides navigation for regions.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Navigation.RegionNavigationService.#ctor(Prism.Ioc.IContainerExtension,Prism.Regions.Navigation.IRegionNavigationContentLoader,Prism.Regions.Navigation.IRegionNavigationJournal)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prism.Regions.Navigation.RegionNavigationService"/> class.
+            </summary>
+            <param name="container">The <see cref="T:Prism.Ioc.IContainerExtension" />.</param>
+            <param name="regionNavigationContentLoader">The navigation target handler.</param>
+            <param name="journal">The journal.</param>
+        </member>
+        <member name="P:Prism.Regions.Navigation.RegionNavigationService.Region">
+            <summary>
+            Gets or sets the region.
+            </summary>
+            <value>The region.</value>
+        </member>
+        <member name="P:Prism.Regions.Navigation.RegionNavigationService.Journal">
+            <summary>
+            Gets the journal.
+            </summary>
+            <value>The journal.</value>
+        </member>
+        <member name="E:Prism.Regions.Navigation.RegionNavigationService.Navigating">
+            <summary>
+            Raised when the region is about to be navigated to content.
+            </summary>
+        </member>
+        <member name="E:Prism.Regions.Navigation.RegionNavigationService.Navigated">
+            <summary>
+            Raised when the region is navigated to content.
+            </summary>
+        </member>
+        <member name="E:Prism.Regions.Navigation.RegionNavigationService.NavigationFailed">
+            <summary>
+            Raised when a navigation request fails.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Navigation.RegionNavigationService.RequestNavigate(System.Uri,System.Action{Prism.Regions.Navigation.IRegionNavigationResult})">
+            <summary>
+            Initiates navigation to the specified target.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="navigationCallback">A callback to execute when the navigation request is completed.</param>
+        </member>
+        <member name="M:Prism.Regions.Navigation.RegionNavigationService.RequestNavigate(System.Uri,System.Action{Prism.Regions.Navigation.IRegionNavigationResult},Prism.Navigation.INavigationParameters)">
+            <summary>
+            Initiates navigation to the specified target.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="navigationCallback">A callback to execute when the navigation request is completed.</param>
+            <param name="regionParameters">The navigation parameters specific to the navigation request.</param>
+        </member>
+        <member name="T:Prism.Regions.Region">
+            <summary>
+            Implementation of <see cref="T:Prism.Regions.IRegion"/> that allows multiple active views.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Region.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:Prism.Regions.Region"/>.
+            </summary>
+        </member>
+        <member name="P:Prism.Regions.Region.Views">
+            <summary>
+            Gets a readonly view of the collection of views in the region.
+            </summary>
+            <value>An <see cref="T:Prism.Regions.IViewsCollection"/> of all the added views.</value>
+        </member>
+        <member name="P:Prism.Regions.Region.ActiveViews">
+            <summary>
+            Gets a readonly view of the collection of all the active views in the region.
+            </summary>
+            <value>An <see cref="T:Prism.Regions.IViewsCollection"/> of all the active views.</value>
+        </member>
+        <member name="P:Prism.Regions.Region.Context">
+            <summary>
+            Gets or sets a context for the region. This value can be used by the user to share context with the views.
+            </summary>
+            <value>The context value to be shared.</value>
+        </member>
+        <member name="P:Prism.Regions.Region.Name">
+            <summary>
+            Gets the name of the region that uniquely identifies the region within a <see cref="T:Prism.Regions.IRegionManager"/>.
+            </summary>
+            <value>The name of the region.</value>
+        </member>
+        <member name="P:Prism.Regions.Region.SortComparison">
+            <summary>
+            Gets or sets the comparison used to sort the views.
+            </summary>
+            <value>The comparison to use.</value>
+        </member>
+        <member name="P:Prism.Regions.Region.RegionManager">
+            <summary>
+            Gets or sets the <see cref="T:Prism.Regions.IRegionManager"/> that will be passed to the views when adding them to the region, unless the view is added by specifying createRegionManagerScope as <see langword="true" />.
+            </summary>
+            <value>The <see cref="T:Prism.Regions.IRegionManager"/> where this <see cref="T:Prism.Regions.IRegion"/> is registered.</value>
+            <remarks>This is usually used by implementations of <see cref="T:Prism.Regions.IRegionManager"/> and should not be
+            used by the developer explicitly.</remarks>
+        </member>
+        <member name="P:Prism.Regions.Region.Behaviors">
+            <summary>
+            Gets the collection of <see cref="T:Prism.Regions.Behaviors.IRegionBehavior"/>s that can extend the behavior of regions.
+            </summary>
+        </member>
+        <member name="P:Prism.Regions.Region.NavigationService">
+            <summary>
+            Gets the navigation service.
+            </summary>
+            <value>The navigation service.</value>
+        </member>
+        <member name="P:Prism.Regions.Region.ItemMetadataCollection">
+            <summary>
+            Gets the collection with all the views along with their metadata.
+            </summary>
+            <value>An <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> of <see cref="T:Prism.Regions.ItemMetadata"/> with all the added views.</value>
+        </member>
+        <member name="M:Prism.Regions.Region.Activate(Xamarin.Forms.VisualElement)">
+            <summary>
+            Marks the specified view as active.
+            </summary>
+            <param name="view">The view to activate.</param>
+        </member>
+        <member name="M:Prism.Regions.Region.Deactivate(Xamarin.Forms.VisualElement)">
+            <summary>
+            Marks the specified view as inactive.
+            </summary>
+            <param name="view">The view to deactivate.</param>
+        </member>
+        <member name="M:Prism.Regions.Region.Add(Xamarin.Forms.VisualElement)">
+            <overloads>Adds a new view to the region.</overloads>
+            <summary>
+            Adds a new view to the region.
+            </summary>
+            <param name="view">The view to add.</param>
+            <returns>The <see cref="T:Prism.Regions.IRegionManager"/> that is set on the view if it is a <see cref="T:Xamarin.Forms.VisualElement"/>. It will be the current region manager when using this overload.</returns>
+        </member>
+        <member name="M:Prism.Regions.Region.Add(Xamarin.Forms.VisualElement,System.String)">
+            <summary>
+            Adds a new view to the region.
+            </summary>
+            <param name="view">The view to add.</param>
+            <param name="viewName">The name of the view. This can be used to retrieve it later by calling <see cref="M:Prism.Regions.IRegion.GetView(System.String)"/>.</param>
+            <returns>The <see cref="T:Prism.Regions.IRegionManager"/> that is set on the view if it is a <see cref="T:Xamarin.Forms.VisualElement"/>. It will be the current region manager when using this overload.</returns>
+        </member>
+        <member name="M:Prism.Regions.Region.Add(Xamarin.Forms.VisualElement,System.String,System.Boolean)">
+            <summary>
+            Adds a new view to the region.
+            </summary>
+            <param name="view">The view to add.</param>
+            <param name="viewName">The name of the view. This can be used to retrieve it later by calling <see cref="M:Prism.Regions.IRegion.GetView(System.String)"/>.</param>
+            <param name="createRegionManagerScope">When <see langword="true"/>, the added view will receive a new instance of <see cref="T:Prism.Regions.IRegionManager"/>, otherwise it will use the current region manager for this region.</param>
+            <returns>The <see cref="T:Prism.Regions.IRegionManager"/> that is set on the view if it is a <see cref="T:Xamarin.Forms.VisualElement"/>.</returns>
+        </member>
+        <member name="M:Prism.Regions.Region.GetView(System.String)">
+            <summary>
+            Returns the view instance that was added to the region using a specific name.
+            </summary>
+            <param name="viewName">The name used when adding the view to the region.</param>
+            <returns>Returns the named view or <see langword="null"/> if the view with <paramref name="viewName"/> does not exist in the current region.</returns>
+        </member>
+        <member name="M:Prism.Regions.Region.Remove(Xamarin.Forms.VisualElement)">
+            <summary>
+            Removes the specified view from the region.
+            </summary>
+            <param name="view">The view to remove.</param>
+        </member>
+        <member name="M:Prism.Regions.Region.RemoveAll">
+            <summary>
+            Removes all views from the region.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.RegionCollection.Add(System.String,Prism.Regions.IRegion)">
+            <summary>
+            Adds a region to the <see cref="T:Prism.Regions.RegionManager"/> with the name received as argument.
+            </summary>
+            <param name="regionName">The name to be given to the region.</param>
+            <param name="region">The region to be added to the <see cref="T:Prism.Regions.RegionManager"/>.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="region"/> is <see langword="null"/>.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if <paramref name="regionName"/> and <paramref name="region"/>'s name do not match and the <paramref name="region"/> <see cref="P:Prism.Regions.IRegion.Name"/> is not <see langword="null"/>.</exception>
+        </member>
+        <member name="T:Prism.Regions.RegionContext">
+             <summary>
+             Class that holds methods to Set and Get the RegionContext from a BindableObject.
+            
+             RegionContext allows sharing of contextual information between the view that's hosting a <see cref="T:Prism.Regions.IRegion"/>
+             and any views that are inside the Region.
+             </summary>
+        </member>
+        <member name="M:Prism.Regions.RegionContext.GetObservableContext(Xamarin.Forms.VisualElement)">
+             <summary>
+             Returns an <see cref="T:Prism.Common.ObservableObject`1"/> wrapper around the RegionContext value. The RegionContext
+             will be set on any views (BindableObject's) that are inside the <see cref="P:Prism.Regions.IRegion.Views"/> collection by
+             the <see cref="T:Prism.Regions.Behaviors.BindRegionContextToVisualElementBehavior"/> Behavior.
+             The RegionContext will also be set to the control that hosts the Region, by the <see cref="T:Prism.Regions.Behaviors.SyncRegionContextWithHostBehavior"/> Behavior.
+            
+             If the <see cref="T:Prism.Common.ObservableObject`1"/> wrapper does not already exist, an empty one will be created. This way, an observer can
+             notify when the value is set for the first time.
+             </summary>
+             <param name="view">Any view that hold the RegionContext value. </param>
+             <returns>Wrapper around the <see cref="T:Prism.Regions.RegionContext"/> value. </returns>
+        </member>
+        <member name="T:Prism.Regions.RegionManager">
+            <summary>
+            This class is responsible for maintaining a collection of regions and attaching regions to controls.
+            </summary>
+            <remarks>
+            This class supplies the attached properties that can be used for simple region creation from XAML.
+            </remarks>
+        </member>
+        <member name="M:Prism.Regions.RegionManager.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:Prism.Regions.RegionManager"/>.
+            </summary>
+        </member>
+        <member name="P:Prism.Regions.RegionManager.Regions">
+            <summary>
+            Gets a collection of <see cref="T:Prism.Regions.IRegion"/> that identify each region by name. You can use this collection to add or remove regions to the current region manager.
+            </summary>
+            <value>A <see cref="T:Prism.Regions.IRegionCollection"/> with all the registered regions.</value>
+        </member>
+        <member name="M:Prism.Regions.RegionManager.AddToRegion(System.String,System.String)">
+            <summary>
+            Add a view to the Views collection of a Region. Note that the region must already exist in this <see cref="T:Prism.Regions.IRegionManager"/>.
+            </summary>
+            <param name="regionName">The name of the region to add a view to</param>
+            <param name="targetName">The view to add to the views collection</param>
+            <returns>The RegionManager, to easily add several views. </returns>
+        </member>
+        <member name="M:Prism.Regions.RegionManager.CreateRegionManager">
+            <summary>
+            Creates a new region manager.
+            </summary>
+            <returns>A new region manager that can be used as a different scope from the current region manager.</returns>
+        </member>
+        <member name="M:Prism.Regions.RegionManager.RegisterViewWithRegion(System.String,System.Type)">
+            <summary>
+            Associate a view with a region, by registering a type. When the region get's displayed
+            this type will be resolved using the ServiceLocator into a concrete instance. The instance
+            will be added to the Views collection of the region
+            </summary>
+            <param name="regionName">The name of the region to associate the view with.</param>
+            <param name="viewType">The type of the view to register with the </param>
+            <returns>The <see cref="T:Prism.Regions.IRegionManager"/>, for adding several views easily</returns>
+        </member>
+        <member name="M:Prism.Regions.RegionManager.RegisterViewWithRegion(System.String,System.String)">
+            <summary>
+            Associate a view with a region, by registering a type. When the region get's displayed
+            this type will be resolved using the ServiceLocator into a concrete instance. The instance
+            will be added to the Views collection of the region
+            </summary>
+            <param name="regionName">The name of the region to associate the view with.</param>
+            <param name="targetName">The type of the view to register with the </param>
+            <returns>The <see cref="T:Prism.Regions.IRegionManager"/>, for adding several views easily</returns>
+        </member>
+        <member name="M:Prism.Regions.RegionManager.RequestNavigate(System.String,System.Uri,System.Action{Prism.Regions.Navigation.IRegionNavigationResult})">
+            <summary>
+            Navigates the specified region manager.
+            </summary>
+            <param name="regionName">The name of the region to call Navigate on.</param>
+            <param name="target">The URI of the content to display.</param>
+            <param name="navigationCallback">The navigation callback.</param>
+        </member>
+        <member name="M:Prism.Regions.RegionManager.RequestNavigate(System.String,System.Uri,System.Action{Prism.Regions.Navigation.IRegionNavigationResult},Prism.Navigation.INavigationParameters)">
+            <summary>
+            This method allows an <see cref="T:Prism.Regions.IRegionManager"/> to locate a specified region and navigate in it to the specified target <see cref="T:System.Uri"/>, passing a navigation callback and an instance of <see cref="T:Prism.Navigation.INavigationParameters"/>, which holds a collection of object parameters.
+            </summary>
+            <param name="regionName">The name of the region where the navigation will occur.</param>
+            <param name="target">A <see cref="T:System.Uri"/> that represents the target where the region will navigate.</param>
+            <param name="navigationCallback">The navigation callback that will be executed after the navigation is completed.</param>
+            <param name="navigationParameters">An instance of <see cref="T:Prism.Navigation.INavigationParameters"/>, which holds a collection of object parameters.</param>
+        </member>
+        <member name="M:Prism.Regions.RegionManager.CreateNewRegionItem(System.String)">
+            <summary>
+            Provides a new item for the region based on the supplied candidate target contract name.
+            </summary>
+            <param name="candidateTargetContract">The target contract to build.</param>
+            <returns>An instance of an item to put into the <see cref="T:Prism.Regions.IRegion"/>.</returns>
+        </member>
+        <member name="T:Prism.Regions.SingleActiveRegion">
+            <summary>
+            Region that allows a maximum of one active view at a time.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.SingleActiveRegion.Activate(Xamarin.Forms.VisualElement)">
+            <summary>
+            Marks the specified view as active.
+            </summary>
+            <param name="view">The view to activate.</param>
+            <remarks>If there is an active view before calling this method,
+            that view will be deactivated automatically.</remarks>
+        </member>
+        <member name="T:Prism.Regions.ViewRegisteredEventArgs">
+            <summary>
+            Argument class used by the <see cref="E:Prism.Regions.IRegionViewRegistry.ContentRegistered"/> event when a new content is registered.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.ViewRegisteredEventArgs.#ctor(System.String,System.Func{System.Object})">
+            <summary>
+            Initializes the ViewRegisteredEventArgs class.
+            </summary>
+            <param name="regionName">The region name to which the content was registered.</param>
+            <param name="getViewDelegate">The content which was registered.</param>
+        </member>
+        <member name="P:Prism.Regions.ViewRegisteredEventArgs.RegionName">
+            <summary>
+            Gets the region name to which the content was registered.
+            </summary>
+        </member>
+        <member name="P:Prism.Regions.ViewRegisteredEventArgs.GetView">
+            <summary>
+            Gets the content which was registered.
+            </summary>
+        </member>
+        <member name="T:Prism.Regions.ViewsCollection">
+            <summary>
+            Implementation of <see cref="T:Prism.Regions.IViewsCollection"/> that takes an <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> of <see cref="T:Prism.Regions.ItemMetadata"/>
+            and filters it to display an <see cref="T:System.Collections.Specialized.INotifyCollectionChanged"/> collection of
+            <see cref="T:System.Object"/> elements (the items which the <see cref="T:Prism.Regions.ItemMetadata"/> wraps).
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.ViewsCollection.#ctor(System.Collections.ObjectModel.ObservableCollection{Prism.Regions.ItemMetadata},System.Predicate{Prism.Regions.ItemMetadata})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prism.Regions.ViewsCollection"/> class.
+            </summary>
+            <param name="list">The list to wrap and filter.</param>
+            <param name="filter">A predicate to filter the <paramref name="list"/> collection.</param>
+        </member>
+        <member name="E:Prism.Regions.ViewsCollection.CollectionChanged">
+            <summary>
+            Occurs when the collection changes.
+            </summary>
+        </member>
+        <member name="P:Prism.Regions.ViewsCollection.SortComparison">
+            <summary>
+            Gets or sets the comparison used to sort the views.
+            </summary>
+            <value>The comparison to use.</value>
+        </member>
+        <member name="P:Prism.Regions.ViewsCollection.Filter">
+            <summary>
+            Gets the Predicate filter
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.ViewsCollection.Contains(Xamarin.Forms.VisualElement)">
+            <summary>
+            Determines whether the collection contains a specific value.
+            </summary>
+            <param name="value">The object to locate in the collection.</param>
+            <returns><see langword="true" /> if <paramref name="value"/> is found in the collection; otherwise, <see langword="false" />.</returns>
+        </member>
+        <member name="M:Prism.Regions.ViewsCollection.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>
+            A <see cref="T:System.Collections.Generic.IEnumerator`1" /> that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="M:Prism.Regions.ViewsCollection.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through a collection.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.IEnumerator" /> object that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="M:Prism.Regions.ViewsCollection.OnCollectionChanged(System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>
+            Used to invoked the <see cref="E:Prism.Regions.ViewsCollection.CollectionChanged"/> event.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Prism.Regions.ViewsCollection.ResetAllMonitors">
+            <summary>
+            Removes all monitoring of underlying MetadataItems and re-adds them.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.ViewsCollection.MonitorAllMetadataItems">
+            <summary>
+            Adds all underlying MetadataItems to the list from the subjectCollection
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.ViewsCollection.RemoveAllMetadataMonitors">
+            <summary>
+            Removes all monitored items from our monitoring list.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.ViewsCollection.AddMetadataMonitor(Prism.Regions.ItemMetadata,System.Boolean)">
+            <summary>
+            Adds handler to monitor the MetadataItem and adds it to our monitoring list.
+            </summary>
+            <param name="itemMetadata"></param>
+            <param name="isInList"></param>
+        </member>
+        <member name="M:Prism.Regions.ViewsCollection.RemoveMetadataMonitor(Prism.Regions.ItemMetadata)">
+            <summary>
+            Unhooks from the MetadataItem change event and removes from our monitoring list.
+            </summary>
+            <param name="itemMetadata"></param>
+        </member>
+        <member name="M:Prism.Regions.ViewsCollection.OnItemMetadataChanged(System.Object,System.EventArgs)">
+            <summary>
+            Invoked when any of the underlying ItemMetadata items we're monitoring changes.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Prism.Regions.ViewsCollection.SourceCollectionChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>
+            The event handler due to changes in the underlying collection.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:Prism.Regions.Xaml.RegionManager">
+            <summary>
+            A class to provide Bindable Properties and helpers for Regions.
+            </summary>
+        </member>
+        <member name="F:Prism.Regions.Xaml.RegionManager.RegionManagerProperty">
+            <summary>
+            Identifies the RegionManager attached property.
+            </summary>
+            <remarks>
+            When a control has both the <see cref="F:Prism.Regions.Xaml.RegionManager.RegionNameProperty"/> and
+            <see cref="F:Prism.Regions.Xaml.RegionManager.RegionManagerProperty"/> attached properties set to
+            a value different than <see langword="null" /> and there is a
+            <see cref="T:Prism.Regions.Adapters.IRegionAdapter"/> mapping registered for the control, it
+            will create and adapt a new region for that control, and register it
+            in the <see cref="T:Prism.Regions.IRegionManager"/> with the specified region name.
+            </remarks>
+        </member>
+        <member name="F:Prism.Regions.Xaml.RegionManager.RegionNameProperty">
+            <summary>
+            Identifies the RegionName attached property.
+            </summary>
+            <remarks>
+            When a control has both the <see cref="F:Prism.Regions.Xaml.RegionManager.RegionNameProperty"/> and
+            <see cref="F:Prism.Regions.Xaml.RegionManager.RegionManagerProperty"/> attached properties set to
+            a value different than <see langword="null" /> and there is a
+            <see cref="T:Prism.Regions.Adapters.IRegionAdapter"/> mapping registered for the control, it
+            will create and adapt a new region for that control, and register it
+            in the <see cref="T:Prism.Regions.IRegionManager"/> with the specified region name.
+            </remarks>
+        </member>
+        <member name="F:Prism.Regions.Xaml.RegionManager.RegionContextProperty">
+            <summary>
+            Identifies the RegionContext attached property.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.Xaml.RegionManager.SetRegionName(Xamarin.Forms.VisualElement,System.String)">
+            <summary>
+            Sets the <see cref="F:Prism.Regions.Xaml.RegionManager.RegionNameProperty"/> attached property.
+            </summary>
+            <param name="regionTarget">The object to adapt. This is typically a container (i.e a control).</param>
+            <param name="regionName">The name of the region to register.</param>
+        </member>
+        <member name="M:Prism.Regions.Xaml.RegionManager.GetRegionName(Xamarin.Forms.VisualElement)">
+            <summary>
+            Gets the value for the <see cref="F:Prism.Regions.Xaml.RegionManager.RegionNameProperty"/> attached property.
+            </summary>
+            <param name="regionTarget">The object to adapt. This is typically a container (i.e a control).</param>
+            <returns>The name of the region that should be created when
+            <see cref="F:Prism.Regions.Xaml.RegionManager.RegionManagerProperty"/> is also set in this element.</returns>
+        </member>
+        <member name="M:Prism.Regions.Xaml.RegionManager.GetObservableRegion(Xamarin.Forms.VisualElement)">
+             <summary>
+             Returns an <see cref="T:Prism.Common.ObservableObject`1"/> wrapper that can hold an <see cref="T:Prism.Regions.IRegion"/>. Using this wrapper
+             you can detect when an <see cref="T:Prism.Regions.IRegion"/> has been created by the <see cref="T:Prism.Regions.Adapters.RegionAdapterBase`1"/>.
+            
+             If the <see cref="T:Prism.Common.ObservableObject`1"/> wrapper does not yet exist, a new wrapper will be created. When the region
+             gets created and assigned to the wrapper, you can use the <see cref="T:Prism.Common.ObservableObject`1"/> event
+             to get notified of that change.
+             </summary>
+             <param name="view">The view that will host the region. </param>
+             <returns>Wrapper that can hold an <see cref="T:Prism.Regions.IRegion"/> value and can notify when the <see cref="T:Prism.Regions.IRegion"/> value changes. </returns>
+        </member>
+        <member name="M:Prism.Regions.Xaml.RegionManager.GetRegionManager(Xamarin.Forms.VisualElement)">
+            <summary>
+            Gets the value of the <see cref="F:Prism.Regions.Xaml.RegionManager.RegionNameProperty"/> attached property.
+            </summary>
+            <param name="target">The target element.</param>
+            <returns>The <see cref="T:Prism.Regions.IRegionManager"/> attached to the <paramref name="target"/> element.</returns>
+        </member>
+        <member name="M:Prism.Regions.Xaml.RegionManager.SetRegionManager(Xamarin.Forms.VisualElement,Prism.Regions.IRegionManager)">
+            <summary>
+            Sets the <see cref="F:Prism.Regions.Xaml.RegionManager.RegionManagerProperty"/> attached property.
+            </summary>
+            <param name="target">The target element.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Prism.Regions.Xaml.RegionManager.GetRegionContext(Xamarin.Forms.VisualElement)">
+            <summary>
+            Gets the value of the <see cref="F:Prism.Regions.Xaml.RegionManager.RegionContextProperty"/> attached property.
+            </summary>
+            <param name="target">The target element.</param>
+            <returns>The region context to pass to the contained views.</returns>
+        </member>
+        <member name="M:Prism.Regions.Xaml.RegionManager.SetRegionContext(Xamarin.Forms.VisualElement,System.Object)">
+            <summary>
+            Sets the <see cref="F:Prism.Regions.Xaml.RegionManager.RegionContextProperty"/> attached property.
+            </summary>
+            <param name="target">The target element.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="E:Prism.Regions.Xaml.RegionManager.UpdatingRegions">
+            <summary>
+            Notification used by attached behaviors to update the region managers appropriately if needed to.
+            </summary>
+            <remarks>This event uses weak references to the event handler to prevent this static event of keeping the
+            target element longer than expected.</remarks>
+        </member>
+        <member name="M:Prism.Regions.Xaml.RegionManager.UpdateRegions">
+            <summary>
+            Notifies attached behaviors to update the region managers appropriately if needed to.
+            </summary>
+            <remarks>
+            This method is normally called internally, and there is usually no need to call this from user code.
+            </remarks>
+        </member>
+        <member name="T:Prism.Regions.IRegionMemberLifetime">
+            <summary>
+            When implemented, allows an instance placed in a <see cref="T:Prism.Regions.IRegion"/>
+            that uses a <see cref="T:Prism.Regions.Behaviors.RegionMemberLifetimeBehavior"/> to indicate
+            it should be removed when it transitions from an activated to deactivated state.
+            </summary>
+        </member>
+        <member name="P:Prism.Regions.IRegionMemberLifetime.KeepAlive">
+            <summary>
+            Gets a value indicating whether this instance should be kept-alive upon deactivation.
+            </summary>
+        </member>
+        <member name="T:Prism.Regions.IRegionViewRegistry">
+            <summary>
+            Defines the interface for the registry of region's content.
+            </summary>
+        </member>
+        <member name="E:Prism.Regions.IRegionViewRegistry.ContentRegistered">
+            <summary>
+            Event triggered when a content is registered to a region name.
+            </summary>
+            <remarks>
+            This event uses weak references to the event handler to prevent this service (typically a singleton) of keeping the
+            target element longer than expected.
+            </remarks>
+        </member>
+        <member name="M:Prism.Regions.IRegionViewRegistry.GetContents(System.String)">
+            <summary>
+            Returns the contents associated with a region name.
+            </summary>
+            <param name="regionName">Region name for which contents are requested.</param>
+            <returns>Collection of contents associated with the <paramref name="regionName"/>.</returns>
+        </member>
+        <member name="M:Prism.Regions.IRegionViewRegistry.RegisterViewWithRegion(System.String,System.Type)">
+            <summary>
+            Registers a content type with a region name.
+            </summary>
+            <param name="regionName">Region name to which the <paramref name="viewType"/> will be registered.</param>
+            <param name="viewType">Content type to be registered for the <paramref name="regionName"/>.</param>
+        </member>
+        <member name="M:Prism.Regions.IRegionViewRegistry.RegisterViewWithRegion(System.String,System.Func{System.Object})">
+            <summary>
+            Registers a delegate that can be used to retrieve the content associated with a region name. 
+            </summary>
+            <param name="regionName">Region name to which the <paramref name="getContentDelegate"/> will be registered.</param>
+            <param name="getContentDelegate">Delegate used to retrieve the content associated with the <paramref name="regionName"/>.</param>
+        </member>
+        <member name="T:Prism.Regions.RegionViewRegistry">
+            <summary>
+            Defines a registry for the content of the regions used on View Discovery composition.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.RegionViewRegistry.#ctor(Prism.Ioc.IContainerExtension)">
+            <summary>
+            Creates a new instance of the <see cref="T:Prism.Regions.RegionViewRegistry"/> class.
+            </summary>
+            <param name="container"><see cref="T:Prism.Ioc.IContainerExtension"/> used to create the instance of the views from its <see cref="T:System.Type"/>.</param>
+        </member>
+        <member name="E:Prism.Regions.RegionViewRegistry.ContentRegistered">
+            <summary>
+            Occurs whenever a new view is registered.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.RegionViewRegistry.GetContents(System.String)">
+            <summary>
+            Returns the contents registered for a region.
+            </summary>
+            <param name="regionName">Name of the region which content is being requested.</param>
+            <returns>Collection of contents registered for the region.</returns>
+        </member>
+        <member name="M:Prism.Regions.RegionViewRegistry.RegisterViewWithRegion(System.String,System.Type)">
+            <summary>
+            Registers a content type with a region name.
+            </summary>
+            <param name="regionName">Region name to which the <paramref name="viewType"/> will be registered.</param>
+            <param name="viewType">Content type to be registered for the <paramref name="regionName"/>.</param>
+        </member>
+        <member name="M:Prism.Regions.RegionViewRegistry.RegisterViewWithRegion(System.String,System.Func{System.Object})">
+            <summary>
+            Registers a delegate that can be used to retrieve the content associated with a region name. 
+            </summary>
+            <param name="regionName">Region name to which the <paramref name="getContentDelegate"/> will be registered.</param>
+            <param name="getContentDelegate">Delegate used to retrieve the content associated with the <paramref name="regionName"/>.</param>
+        </member>
+        <member name="M:Prism.Regions.RegionViewRegistry.CreateInstance(System.Type)">
+            <summary>
+            Creates an instance of a registered view <see cref="T:System.Type"/>. 
+            </summary>
+            <param name="type">Type of the registered view.</param>
+            <returns>Instance of the registered view.</returns>
+        </member>
+        <member name="T:Prism.Regions.RegionMemberLifetimeAttribute">
+            <summary>
+            When <see cref="T:Prism.Regions.RegionMemberLifetimeAttribute"/> is applied to class provides data
+            the <see cref="T:Prism.Regions.Behaviors.RegionMemberLifetimeBehavior"/> can use to determine if the instance should
+            be removed when it is deactivated.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.RegionMemberLifetimeAttribute.#ctor">
+            <summary>
+            Instantiates an instance of <see cref="T:Prism.Regions.RegionMemberLifetimeAttribute"/>
+            </summary>
+        </member>
+        <member name="P:Prism.Regions.RegionMemberLifetimeAttribute.KeepAlive">
+            <summary>
+             Determines if the region member should be kept-alive
+             when deactivated.
+            </summary>
+        </member>
+        <member name="T:Prism.Regions.ViewSortHintAttribute">
+            <summary>
+            Provides a hint from a view to a region on how to sort the view.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.ViewSortHintAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prism.Regions.ViewSortHintAttribute"/> class.
+            </summary>
+            <param name="hint">The hint to use for sorting.</param>
+        </member>
+        <member name="P:Prism.Regions.ViewSortHintAttribute.Hint">
+            <summary>
+            Gets  the hint.
+            </summary>
+            <value>The hint to use for sorting.</value>
+        </member>
+        <member name="T:Prism.Regions.SyncActiveStateAttribute">
+            <summary>
+            Defines that a view is synchronized with its parent view's Active state.
+            </summary>
+        </member>
+        <member name="T:Prism.Regions.UpdateRegionsException">
+            <summary>
+            Represents errors that occured during the regions' update.
+            </summary>
+            <summary>
+            Represents errors that occured during the regions' update.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.UpdateRegionsException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prism.Regions.UpdateRegionsException"/>
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.UpdateRegionsException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prism.Regions.UpdateRegionsException"/> class with a specified error message.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:Prism.Regions.UpdateRegionsException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prism.Regions.UpdateRegionsException"/> class with a specified error message and a reference 
+            to the inner exception that is the cause of this exception. 
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="inner">The exception that is the cause of the current exception, or a null reference 
+            (Nothing in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="M:Prism.Regions.UpdateRegionsException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prism.Regions.UpdateRegionsException"/> class with serialized data.
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
+        </member>
+        <member name="T:Prism.Regions.ViewRegistrationException">
+            <summary>
+            Exception that's thrown when something goes wrong while Registering a View with a region name in the <see cref="T:Prism.Regions.RegionViewRegistry"/> class. 
+            </summary>
+            <summary>
+            Exception that's thrown when something goes wrong while Registering a View with a region name in the <see cref="T:Prism.Regions.RegionViewRegistry"/> class. 
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.ViewRegistrationException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prism.Regions.ViewRegistrationException"/> class.
+            </summary>
+        </member>
+        <member name="M:Prism.Regions.ViewRegistrationException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prism.Regions.ViewRegistrationException"/> class.
+            </summary>
+            <param name="message">The exception message.</param>
+        </member>
+        <member name="M:Prism.Regions.ViewRegistrationException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prism.Regions.ViewRegistrationException"/> class.
+            </summary>
+            <param name="message">The exception message.</param>
+            <param name="inner">The inner exception.</param>
+        </member>
+        <member name="M:Prism.Regions.ViewRegistrationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prism.Regions.ViewRegistrationException"/> class with serialized data.
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized 
+            object data about the exception being thrown.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
+        </member>
+    </members>
+</doc>

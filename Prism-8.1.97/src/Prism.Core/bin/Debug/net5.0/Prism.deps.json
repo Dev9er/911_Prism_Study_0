@@ -1,0 +1,73 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "Prism/8.1.0-g": {
+        "dependencies": {
+          "Microsoft.NETFramework.ReferenceAssemblies": "1.0.2",
+          "Microsoft.SourceLink.GitHub": "1.1.0-beta-20204-02",
+          "Nerdbank.GitVersioning": "3.4.194"
+        },
+        "runtime": {
+          "Prism.dll": {}
+        }
+      },
+      "Microsoft.Build.Tasks.Git/1.1.0-beta-20204-02": {},
+      "Microsoft.NETFramework.ReferenceAssemblies/1.0.2": {},
+      "Microsoft.SourceLink.Common/1.1.0-beta-20204-02": {},
+      "Microsoft.SourceLink.GitHub/1.1.0-beta-20204-02": {
+        "dependencies": {
+          "Microsoft.Build.Tasks.Git": "1.1.0-beta-20204-02",
+          "Microsoft.SourceLink.Common": "1.1.0-beta-20204-02"
+        }
+      },
+      "Nerdbank.GitVersioning/3.4.194": {}
+    }
+  },
+  "libraries": {
+    "Prism/8.1.0-g": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Build.Tasks.Git/1.1.0-beta-20204-02": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-T7mMbmgoT3XXKrXbLeEj6D9fQLZDmF/T8W5NQsrlcfQ24nOLrkr1Cst9cmI44zIH16rIo+4ws0tEqUN+Jw5Iag==",
+      "path": "microsoft.build.tasks.git/1.1.0-beta-20204-02",
+      "hashPath": "microsoft.build.tasks.git.1.1.0-beta-20204-02.nupkg.sha512"
+    },
+    "Microsoft.NETFramework.ReferenceAssemblies/1.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5/cSEVld+px/CuRrbohO/djfg6++eR6zGpy88MgqloXvkj//WXWpFZyu/OpkXPN0u5m+dN/EVwLNYFUxD4h2+A==",
+      "path": "microsoft.netframework.referenceassemblies/1.0.2",
+      "hashPath": "microsoft.netframework.referenceassemblies.1.0.2.nupkg.sha512"
+    },
+    "Microsoft.SourceLink.Common/1.1.0-beta-20204-02": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3tLuYVu7iPSUGVgSygxZnN4q6ZdXFbKd2A/1Zgva5i6VMoVXoTJwggKVZTGyemlWriziOwY76I5MZI+vnJ8ztA==",
+      "path": "microsoft.sourcelink.common/1.1.0-beta-20204-02",
+      "hashPath": "microsoft.sourcelink.common.1.1.0-beta-20204-02.nupkg.sha512"
+    },
+    "Microsoft.SourceLink.GitHub/1.1.0-beta-20204-02": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nVB0LiCn+q0eprqpQ9BeZ6xMdIobiRTwZlrvyAYDv4Zprek5BUHJ8usXUEtJlCTqQYF5HvLgvwf361jCkhmXCg==",
+      "path": "microsoft.sourcelink.github/1.1.0-beta-20204-02",
+      "hashPath": "microsoft.sourcelink.github.1.1.0-beta-20204-02.nupkg.sha512"
+    },
+    "Nerdbank.GitVersioning/3.4.194": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-f4V2lLy9G0BnddqGhfaVa+dKsbu8iCiLiUARHKBo0l899MgJdRjVU2C7e29gHrZWxc2HZkq3aq28OHHK7q0/iQ==",
+      "path": "nerdbank.gitversioning/3.4.194",
+      "hashPath": "nerdbank.gitversioning.3.4.194.nupkg.sha512"
+    }
+  }
+}
