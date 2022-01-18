@@ -1,25 +1,25 @@
-# PrismStudy
+* PrismStudy
 [1]: 01-BootstrapperShell/
 [Bootstrapper and the Shell][1] | Create a basic bootstrapper and shell
-- App.xaml
+  - App.xaml
     - Application x:Class="BootstrapperShell.App"
-- App.xaml.cs
+  - App.xaml.cs
     - App : Application
-        - OnStartUp
-            var bootstrapper = new Bootstrapper();
-            bootstrapper.Run();
-- Bootstrapper.cs
+      - OnStartUp
+        var bootstrapper = new Bootstrapper();
+        bootstrapper.Run();
+  - Bootstrapper.cs
     - Bootstrapper : PrismBootstrapper
-        - CreateShell()
-            return Container.Resolve<MainWindow>();
-        - RegisterTypes(IContainerRegistery containerRegistry)
-- MainWindow.xaml
+      - CreateShell()
+        return Container.Resolve<MainWindow>();
+      - RegisterTypes(IContainerRegistery containerRegistry)
+  - MainWindow.xaml
     - Windows x:Class="BootstrapperShell.Views.MainWindow"
-- MainWindow.xaml.cs
+  - MainWindow.xaml.cs
     - MainWindow : Window
-- App.OnStartUp()
+  - App.OnStartUp()
     >> RegisterTypes() >> CreateShell()
-        >> MainWindow()
+      >> MainWindow()
     >> CreateShell(): Container.Resolve<MainWindow>()
 cf. Bootstrapper: Run() >> ConfigureViewModelLocator() >>
     Initialize():
@@ -39,17 +39,16 @@ cf. Bootstrapper: Run() >> ConfigureViewModelLocator() >>
     14. InitializeShell()
     15. InitializeModules()
 
-# Prism Library
-## Dependency Injection
-### Registering Types
+* Prism Library
+** Dependency Injection
+*** Registering Types
 - Registering Transient Services
-    - containerRegistry.Register<FooService>();
-    - containerRegistry.Register<IBarService, BarService>();
+  - containerRegistry.Register<FooService>();
+  - containerRegistry.Register<IBarService, BarService>();
 - Registering Singleton Services
-    - containerRegistry.RegisterSingleton<FooService>();
-    - containerRegistry.RegisterSingleton<IBarService, BarService>();
+  - containerRegistry.RegisterSingleton<FooService>();
+  - containerRegistry.RegisterSingleton<IBarService, BarService>();
 - Registering a Service Instance
-    - containerRegistry.RegisterInstance<IFoo>(new FooImplementation());
+  - containerRegistry.RegisterInstance<IFoo>(new FooImplementation());
 - if (containerRegistry.IsRegistered<ISomeService>())
-## Commanding
-
+** Commanding
